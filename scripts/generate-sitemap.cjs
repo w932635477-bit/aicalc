@@ -1,0 +1,102 @@
+const fs = require('fs')
+const path = require('path')
+const { execSync } = require('child_process')
+
+const BASE_URL = 'https://aicalc.cloud'
+const LOCALES = ['zh', 'ja', 'es', 'pt', 'fr', 'de', 'ko']
+const DIST_DIR = path.join(__dirname, '..', 'dist')
+
+// Read slugs from long-tail data
+const dataFile = path.join(__dirname, '..', 'src', 'cron', 'seo', 'long-tail-data.ts')
+const dataContent = fs.readFileSync(dataFile, 'utf-8')
+const slugMatches = [...dataContent.matchAll(/slug: '([^']+)'/g)]
+
+// Read slugs from alternatives data
+const altDataFile = path.join(__dirname, '..', 'src', 'alternatives', 'seo', 'alternatives-data.ts')
+const altDataContent = fs.readFileSync(altDataFile, 'utf-8')
+const altSlugMatches = [...altDataContent.matchAll(/slug: '([^']+)'/g)]
+
+// Read slugs from deploy data
+const deployDataFile = path.join(__dirname, '..', 'src', 'deploy', 'seo', 'deploy-data.ts')
+const deployDataContent = fs.readFileSync(deployDataFile, 'utf-8')
+const deploySlugMatches = [...deployDataContent.matchAll(/slug: '([^']+)'/g)]
+
+// Read slugs from compare data
+const compareDataFile = path.join(__dirname, '..', 'src', 'compare', 'seo', 'compare-data.ts')
+const compareDataContent = fs.readFileSync(compareDataFile, 'utf-8')
+const compareSlugMatches = [...compareDataContent.matchAll(/slug: '([^']+)'/g)]
+
+// Read slugs from token tracker data
+const trackerDataFile = path.join(__dirname, '..', 'src', 'token-tracker', 'seo', 'scene-data.ts')
+const trackerDataContent = fs.readFileSync(trackerDataFile, 'utf-8')
+const trackerSlugMatches = [...trackerDataContent.matchAll(/slug: '([^']+)'/g)]
+
+// Read slugs from MCP server data
+const mcpDataFile = path.join(__dirname, '..', 'src', 'mcp', 'seo', 'mcp-data.ts')
+const mcpDataContent = fs.readFileSync(mcpDataFile, 'utf-8')
+const mcpSlugMatches = [...mcpDataContent.matchAll(/slug: '([^']+)'/g)]
+
+const allUrls = [
+  { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
+  { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/cron-generator/common-patterns/', priority: '0.85', changefreq: 'weekly' },
+  { loc: BASE_URL + '/alternatives/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/agent-safety/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/voice-agent-pricing/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/compare/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/deploy/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/token-tracker/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/token-counter/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/finder/notes/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/finder/chat/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/photos/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/prompt-cache-calculator/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/mcp-servers/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/csp-generator/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/pii-redactor/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/ai-code-review/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/ai-code-review/how-to-review-ai-generated-code/', priority: '0.85', changefreq: 'weekly' },
+  { loc: BASE_URL + '/ai-code-review/ai-pr-review-checklist/', priority: '0.85', changefreq: 'weekly' },
+  { loc: BASE_URL + '/ai-agent-data-access/', priority: '0.9', changefreq: 'weekly' },
+]
+
+for (const locale of LOCALES) {
+  allUrls.push({ loc: `${BASE_URL}/cron-generator/${locale}/`, priority: '0.7', changefreq: 'monthly' })
+}
+
+for (const m of slugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/cron-generator/${m[1]}/`, priority: '0.8', changefreq: 'monthly' })
+}
+
+for (const m of altSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/alternatives/${m[1]}/`, priority: '0.8', changefreq: 'monthly' })
+}
+
+for (const m of deploySlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/deploy/${m[1]}/`, priority: '0.8', changefreq: 'monthly' })
+}
+
+for (const m of compareSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/compare/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+for (const m of trackerSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/token-tracker/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+for (const m of mcpSlugMatches) {
+  allUrls.push({ loc: `${BASE_URL}/mcp-servers/${m[1]}/`, priority: '0.85', changefreq: 'monthly' })
+}
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allUrls.map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`).join('\n')}
+</urlset>
+`
+
+fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap)
+console.log(`Generated sitemap.xml with ${allUrls.length} URLs`)

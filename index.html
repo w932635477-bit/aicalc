@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM API Pricing — Compare GPT, Claude, Gemini &amp; More</title>
+    <meta name="description" content="Free LLM API pricing calculator. Compare costs across 19 AI models: GPT-5.5, Claude 3.7 Sonnet, Gemini 2.0 Flash, DeepSeek V4. Updated May 2026." />
+    <meta name="keywords" content="llm api pricing, llm cost calculator, ai pricing comparison, gpt-5.5 pricing, claude api cost, gemini pricing, llm cost per token, ai api calculator, llm api pricing comparison 2026" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="LLM API Pricing — Compare GPT, Claude, Gemini &amp; More" />
+    <meta property="og:description" content="Compare LLM API pricing across 19 models. Calculate costs per 1M tokens. Free, no login." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aicalc.cloud/" />
+    <meta property="og:site_name" content="aicalc.cloud" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LLM API Pricing Calculator" />
+    <meta name="twitter:description" content="Compare API costs across 19 AI models. GPT-5.5, Claude 3.7, Gemini 2.0, DeepSeek V4. Free." />
+
+    <link rel="canonical" href="https://aicalc.cloud/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "LLM API Pricing Calculator",
+      "url": "https://aicalc.cloud/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free LLM API pricing calculator. Compare costs across 19 AI models from OpenAI, Anthropic, Google, DeepSeek, and Groq. Calculate costs per 1M tokens.",
+      "browserRequirements": "Requires JavaScript"
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is LLM API pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LLM API pricing is how AI providers charge for using their large language models. Most providers charge per token (roughly 4 characters of English text), with separate rates for input tokens (your prompt) and output tokens (the model's response). Prices range from $0.0375 per 1M tokens for the cheapest models to $75 per 1M tokens for the most capable ones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does GPT-5.5 cost per 1M tokens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As of May 2026, GPT-5.5 costs $5.00 per 1M input tokens and $30.00 per 1M output tokens (standard processing). The more affordable GPT-5.4 costs $2.50/$15.00, and GPT-5.4 Mini costs $0.75/$4.50. Cached input tokens are available at 90% discount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which LLM has the cheapest API?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google's Gemini 1.5 Flash-8B has the cheapest LLM API at $0.0375/$0.15 per 1M tokens. For production-quality models, Gemini 2.0 Flash ($0.10/$0.40) and DeepSeek V4 Flash ($0.14/$0.28) offer the best value. Groq's Llama 4 Maverick provides ultra-fast inference at $0.20/$0.60."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I compare LLM costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use this calculator to compare LLM costs: paste your prompt, set your monthly call volume, and see side-by-side pricing for all major providers. The static pricing table above shows current rates for all 19 models. Key factors: input vs output pricing, context window size, and your actual usage patterns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the cost per token for Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anthropic's Claude models are priced per 1M tokens: Claude 3.7 Sonnet costs $3.00 input / $15.00 output, Claude 3.5 Haiku costs $0.80 / $4.00, Claude 3 Opus costs $15.00 / $75.00, and Claude 3 Haiku costs $0.25 / $1.25. Per individual token, Claude 3.7 Sonnet costs $0.000003 per input token."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the token count?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For OpenAI models (GPT-4o, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on approximately 4 characters per token for English text and 1.5 characters for Chinese text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often is pricing updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pricing data is sourced directly from official provider pages and verified regularly. AI providers change pricing frequently — check the 'Prices last verified' date in the comparison table above."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this tool free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, completely free. No login required. No API keys needed. All calculations happen in your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a token?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. AI providers charge based on the number of tokens processed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I reduce my AI costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three strategies: Use cheaper models for simple tasks (GPT-4o Mini at $0.15/$0.60 or Gemini 2.0 Flash at $0.10/$0.40), shorten prompts to reduce input tokens, and use cached input where available (OpenAI offers 90% discount on cached tokens)."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

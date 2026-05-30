@@ -1,0 +1,252 @@
+{
+  "generatedAt": "2026-05-30T09:41:24.390Z",
+  "summary": {
+    "totalIndexable": 295,
+    "totalSubmitted": 225,
+    "coverage": 76.3,
+    "todaysSubmissions": 0,
+    "dailyQuota": 10,
+    "remainingToday": 10
+  },
+  "sections": [
+    {
+      "name": "cron-generator",
+      "total": 160,
+      "submitted": 0,
+      "remaining": 160
+    },
+    {
+      "name": "alternatives",
+      "total": 42,
+      "submitted": 0,
+      "remaining": 42
+    },
+    {
+      "name": "deploy",
+      "total": 36,
+      "submitted": 0,
+      "remaining": 36
+    },
+    {
+      "name": "compare",
+      "total": 27,
+      "submitted": 0,
+      "remaining": 27
+    },
+    {
+      "name": "mcp-servers",
+      "total": 11,
+      "submitted": 0,
+      "remaining": 11
+    },
+    {
+      "name": "token-tracker",
+      "total": 5,
+      "submitted": 0,
+      "remaining": 5
+    },
+    {
+      "name": "ai-code-review",
+      "total": 3,
+      "submitted": 0,
+      "remaining": 3
+    },
+    {
+      "name": "finder",
+      "total": 2,
+      "submitted": 0,
+      "remaining": 2
+    },
+    {
+      "name": "home",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "agent-safety",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "voice-agent-pricing",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "token-counter",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "photos",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "prompt-cache-calculator",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "csp-generator",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "pii-redactor",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "ai-agent-data-access",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    }
+  ],
+  "dailyBars": [
+    {
+      "day": "2026-05-25",
+      "count": 10
+    },
+    {
+      "day": "2026-05-26",
+      "count": 11
+    },
+    {
+      "day": "2026-05-27",
+      "count": 10
+    },
+    {
+      "day": "2026-05-28",
+      "count": 191
+    },
+    {
+      "day": "undefined",
+      "count": 3
+    }
+  ],
+  "suggestedBatch": [
+    "https://aicalc.cloud/",
+    "https://aicalc.cloud/cron-generator/",
+    "https://aicalc.cloud/alternatives/",
+    "https://aicalc.cloud/compare/",
+    "https://aicalc.cloud/deploy/",
+    "https://aicalc.cloud/token-tracker/",
+    "https://aicalc.cloud/compare/obsidian-vs-notion/",
+    "https://aicalc.cloud/compare/notion-vs-obsidian/",
+    "https://aicalc.cloud/compare/nextcloud-vs-owncloud/",
+    "https://aicalc.cloud/compare/joplin-vs-obsidian/"
+  ],
+  "recentSubmissions": [
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-tuesday-2pm/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-thursday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-thursday-3pm/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-sunday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-sunday-noon/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-sunday-6pm/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-saturday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-saturday-9am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-saturday-8am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-quarter/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-october/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-month/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-monday-wednesday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-monday-wednesday-friday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-monday-friday/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-monday-9am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-monday-8am/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-minute/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-july/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    },
+    {
+      "url": "https://codehelper.xyz/cron-generator/every-january/",
+      "day": "2026-05-28",
+      "ts": "2026-05-28T05:24:24.000Z"
+    }
+  ],
+  "gscMetrics": null
+}

@@ -1,0 +1,65 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vercel
+.gstack/
+test-results/
+qa-*.cjs
+qa-screenshots/
+qa-visual/
+qa-prod-visual/
+public/promptcostcalculator*.txt
+
+# Secrets
+scripts/_gsc_oauth_token.json
+
+# CodeGraph index cache
+.codegraph/
+
+# GSC OAuth credentials
+gsc-oauth-credentials.json
+.gsc-oauth-token.json
+gsc-indexing-token.json
+.gsc-indexing-token.json
+
+# Internal scripts (not for public repo)
+capture-competitors.mjs
+reddit-comment*.mjs
+reddit-post.mjs
+promotion-*.md
+scripts/gemini-tts.cjs
+scripts/douyin-script-framework.md
+scripts/tts-ep*.txt
+scripts/tts-ep*.md
+scripts/collect-signals.cjs
+scripts/scrape-browse-sources.sh
+scripts/capture-competitors.mjs
+
+# Internal docs
+docs/daily-scout/
+docs/email-capture-plan.md
+docs/twitter-60day-sop.md
+docs/self-hosted-tool-finder-design.md
+docs/gsc/
+docs/design/
