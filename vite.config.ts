@@ -58,6 +58,30 @@ const mcpInputs = Object.fromEntries(
   mcpSlugMatches.map(m => [`mcp-d-${m[1]}`, resolve(__dirname, `mcp-servers/${m[1]}/index.html`)])
 )
 
+// Load llm-pricing SEO page inputs from generated data
+const pricingSeoDataFile = resolve(__dirname, 'src/llm-pricing/seo/pricing-seo-data.ts')
+const pricingSeoDataContent = fs.readFileSync(pricingSeoDataFile, 'utf-8')
+const pricingSeoSlugMatches = [...pricingSeoDataContent.matchAll(/slug: '([^']+)'/g)]
+const pricingSeoInputs = Object.fromEntries(
+  pricingSeoSlugMatches.map(m => [`pricing-lt-${m[1]}`, resolve(__dirname, `llm-pricing/${m[1]}/index.html`)])
+)
+
+// Load llm-cost SEO page inputs from generated data
+const costSeoDataFile = resolve(__dirname, 'src/llm-pricing/seo/cost-seo-data.ts')
+const costSeoDataContent = fs.readFileSync(costSeoDataFile, 'utf-8')
+const costSeoSlugMatches = [...costSeoDataContent.matchAll(/slug: '([^']+)'/g)]
+const costSeoInputs = Object.fromEntries(
+  costSeoSlugMatches.map(m => [`cost-lt-${m[1]}`, resolve(__dirname, `llm-pricing/${m[1]}/index.html`)])
+)
+
+// Load cron-validator sub-page inputs from generated data
+const validatorDataFile = resolve(__dirname, 'src/cron-validator/seo/validator-data.ts')
+const validatorDataContent = fs.readFileSync(validatorDataFile, 'utf-8')
+const validatorSlugMatches = [...validatorDataContent.matchAll(/slug: '([^']+)'/g)]
+const validatorInputs = Object.fromEntries(
+  validatorSlugMatches.map(m => [`validator-lt-${m[1]}`, resolve(__dirname, `cron-validator/${m[1]}/index.html`)])
+)
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -86,6 +110,8 @@ export default defineConfig({
         'ai-review-guide': resolve(__dirname, 'ai-code-review/how-to-review-ai-generated-code/index.html'),
         'ai-pr-checklist': resolve(__dirname, 'ai-code-review/ai-pr-review-checklist/index.html'),
         'agent-data-access': resolve(__dirname, 'agent-data-access/index.html'),
+        'llm-pricing': resolve(__dirname, 'llm-pricing/index.html'),
+        'cron-validator': resolve(__dirname, 'cron-validator/index.html'),
         ...localeInputs,
         ...longTailInputs,
         ...altInputs,
@@ -93,6 +119,9 @@ export default defineConfig({
         ...compareInputs,
         ...trackerInputs,
         ...mcpInputs,
+        ...pricingSeoInputs,
+        ...costSeoInputs,
+        ...validatorInputs,
       },
     },
   },

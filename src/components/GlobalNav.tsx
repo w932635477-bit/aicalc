@@ -1,6 +1,7 @@
 const TOOLS = [
   { name: 'AI Cost Calculator', path: '/' },
   { name: 'Cron Generator', path: '/cron-generator/' },
+  { name: 'Cron Validator', path: '/cron-validator/' },
   { name: 'Self-Hosted Alternatives', path: '/alternatives/' },
   { name: 'Notes Finder', path: '/finder/notes/' },
   { name: 'Chat Finder', path: '/finder/chat/' },
@@ -15,12 +16,13 @@ const TOOLS = [
   { name: 'PII Redactor', path: '/pii-redactor/' },
   { name: 'Agent Safety', path: '/agent-safety/' },
   { name: 'AI Code Review', path: '/ai-code-review/' },
+  { name: 'LLM Pricing', path: '/llm-pricing/' },
 ]
 
 export function GlobalNav({ current }: { current: string }) {
   return (
     <nav className="border-b border-[#e8e8ed] bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-[980px] mx-auto px-4 overflow-x-auto">
+      <div className="w-full px-6 overflow-x-auto">
         <ul className="flex items-center gap-1 py-2 text-sm whitespace-nowrap">
           {TOOLS.map(tool => (
             <li key={tool.path}>
