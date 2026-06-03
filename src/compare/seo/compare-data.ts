@@ -1834,50 +1834,6 @@ volumes:
     keywords: ['revolt vs element', 'element vs revolt', 'discord alternative self hosted', 'revolt chat review', 'matrix chat self hosted', 'best self hosted discord alternative 2026'],
   },
   {
-    slug: 'logseq-vs-obsidian',
-    productA: {
-      name: 'Logseq', tagline: 'Open-source outliner for knowledge management', logo: '🗂️',
-      url: 'https://logseq.com', github: 'https://github.com/logseq/logseq',
-      license: 'AGPL-3.0', selfHosted: false, docker: false,
-      pricing: 'Free / Sync $5/mo / Pro $15/mo', difficulty: 'Easy',
-    },
-    productB: {
-      name: 'Obsidian', tagline: 'Local-first markdown knowledge base', logo: '💎',
-      url: 'https://obsidian.md', github: 'https://github.com/obsidianmd/obsidian-api',
-      license: 'Proprietary (free for personal)', selfHosted: false, docker: false,
-      pricing: 'Free / Sync $4/mo / Publish $8/mo', difficulty: 'Easy',
-    },
-    title: 'Logseq vs Obsidian — Which Open-Source Note-Taking App Wins in 2026?',
-    h1: 'Logseq vs Obsidian: Outliner vs Markdown Note-Taking',
-    description: 'Logseq vs Obsidian comparison. Open-source outliner vs local-first markdown knowledge base. Features, graph view, plugins, pricing, and which note-taking app wins for different use cases.',
-    summary: 'Logseq wins for structured outlining, daily journals, and open-source purists. Obsidian wins for plugin flexibility, markdown editing, and a polished experience. Different paradigms for different workflows.',
-    features: [
-      { name: 'Open Source', a: true, b: 'Proprietary' },
-      { name: 'Editing Model', a: 'Outliner (blocks)', b: 'Markdown (pages)' },
-      { name: 'Graph View', a: true, b: true },
-      { name: 'Backlinks', a: true, b: true },
-      { name: 'Plugin Ecosystem', a: '200+', b: '1,000+' },
-      { name: 'Offline Access', a: true, b: true },
-      { name: 'Sync Cost', a: '$5/mo', b: '$4/mo' },
-      { name: 'PDF Annotation', a: true, b: 'Via plugin' },
-      { name: 'Mobile App', a: true, b: true },
-      { name: 'Free Plan', a: true, b: true },
-    ],
-    prosA: ['Fully open source under AGPL-3.0', 'Block-level outliner is great for structured thinking', 'Built-in daily journals and task management', 'PDF annotation built-in without plugins', 'Works with local folders — no lock-in'],
-    consA: ['Smaller plugin ecosystem (200+ vs 1,000+)', 'Performance can lag with very large graphs', 'Less polished mobile experience', 'Sync requires paid plan ($5/month)'],
-    prosB: ['Massive plugin ecosystem with 1,000+ community plugins', 'Polished UI and smooth editing experience', 'Your data is standard markdown files', 'Canvas for visual thinking and whiteboarding', 'Excellent mobile apps on iOS and Android'],
-    consB: ['Proprietary license — not open source', 'No built-in outliner mode', 'Collaboration requires paid plans', 'Some advanced features need plugins'],
-    winner: 'tie',
-    winnerReason: 'Logseq and Obsidian serve different workflows. Logseq is best for outliner-first thinking, daily journals, and open-source values. Obsidian is best for markdown-native writing, plugin flexibility, and a polished experience. Try both and pick the paradigm that fits your brain.',
-    faq: [
-      { q: 'Is Logseq better than Obsidian?', a: 'It depends on your workflow. Logseq excels at outliner-style thinking with block-level references and daily journals. Obsidian excels at long-form markdown writing with a rich plugin ecosystem.' },
-      { q: 'Can I use Logseq and Obsidian together?', a: 'Yes. Both work with local markdown files. You can point both apps at the same folder. Some formatting differences exist (Logseq uses Org-style properties).' },
-      { q: 'Which is better for PKM (Personal Knowledge Management)?', a: 'Both are excellent. Logseq is better for atomic, block-level notes and Zettelkasten. Obsidian is better for longer articles and visual knowledge graphs with Canvas.' },
-      { q: 'Is Logseq really free?', a: 'Yes. Logseq is open source (AGPL-3.0) and the core app is free forever. Sync and some premium features cost $5/month.' },
-    ],
-    keywords: ['logseq vs obsidian', 'logseq review', 'obsidian alternative open source', 'logseq vs obsidian 2026', 'best note taking app open source', 'logseq outliner'],
-  },
-  {
     slug: 'outline-vs-notion',
     productA: {
       name: 'Outline', tagline: 'Open-source self-hosted knowledge base wiki', logo: '📖',
@@ -1950,5 +1906,343 @@ volumes:
       { q: 'What databases does Outline support?', a: 'Outline uses PostgreSQL for its database. It does not have Notion-style database/table features for managing structured data within documents.' },
     ],
     keywords: ['outline wiki', 'outline vs notion', 'self hosted notion alternative', 'outline self hosted', 'best self hosted wiki', 'notion alternative open source'],
+  },
+  {
+    slug: 'n8n-vs-activepieces',
+    productA: {
+      name: 'n8n', tagline: 'Fair-code workflow automation with 400+ integrations', logo: '⚡',
+      url: 'https://n8n.io', github: 'https://github.com/n8n-io/n8n',
+      license: 'Sustainable Use (fair-code)', selfHosted: true, docker: true,
+      dockerCompose: 'version: "3"\nservices:\n  n8n:\n    image: n8nio/n8n\n    ports:\n      - "5678:5678"\n    volumes:\n      - n8n_data:/home/node/.n8n\n    restart: unless-stopped\nvolumes:\n  n8n_data:',
+      pricing: 'Free (self-hosted) / Starter $20/mo / Pro $50/mo', difficulty: 'Medium',
+    },
+    productB: {
+      name: 'Activepieces', tagline: 'Open-source no-code automation platform', logo: '🧩',
+      url: 'https://activepieces.com', github: 'https://github.com/activepieces/activepieces',
+      license: 'MIT (community edition)', selfHosted: true, docker: true,
+      dockerCompose: 'version: "3"\nservices:\n  activepieces:\n    image: activepieces/activepieces\n    ports:\n      - "8080:8080"\n    volumes:\n      - ap_data:/app/data\n    restart: unless-stopped\nvolumes:\n  ap_data:',
+      pricing: 'Free (self-hosted) / Cloud $25/mo', difficulty: 'Easy',
+    },
+    title: 'n8n vs Activepieces — Best Self-Hosted Automation Tool in 2026',
+    h1: 'n8n vs Activepieces: Self-Hosted Automation Comparison',
+    description: 'n8n vs Activepieces head-to-head comparison. Features, pricing, integrations, self-hosting difficulty, and which automation tool wins for different use cases.',
+    summary: 'n8n wins for developers who want code-level control, branching logic, and 400+ integrations. Activepieces wins for teams who want a simpler, no-code builder with a cleaner UI and faster setup.',
+    features: [
+      { name: 'Open Source', a: 'Fair-code (Sustainable Use)', b: 'MIT (community)' },
+      { name: 'Self-Hosted', a: true, b: true },
+      { name: 'Docker Deploy', a: true, b: true },
+      { name: 'Integrations', a: '400+', b: '200+' },
+      { name: 'Visual Builder', a: 'Node-based', b: 'Flow-based' },
+      { name: 'Code Nodes', a: 'JavaScript/Python', b: 'JavaScript' },
+      { name: 'Branching Logic', a: true, b: 'Limited' },
+      { name: 'Error Handling', a: 'Advanced retry/fallback', b: 'Basic retry' },
+      { name: 'Webhook Support', a: true, b: true },
+      { name: 'Scheduling', a: 'Cron + intervals', b: 'Intervals only' },
+      { name: 'Team Management', a: true, b: true },
+      { name: 'Execution History', a: 'Full (up to plan)', b: 'Full' },
+      { name: 'AI/LLM Nodes', a: true, b: 'Limited' },
+    ],
+    prosA: ['400+ integrations covering nearly every SaaS tool', 'Code nodes let you write JS/Python for complex logic', 'Advanced branching with IF/Switch/Loop nodes', 'AI and LLM nodes for AI-powered workflows', 'Large community with 50K+ GitHub stars', 'Extensive documentation and community templates'],
+    consA: ['Fair-code license restricts some commercial use', 'UI can feel overwhelming for non-technical users', 'Resource-heavy for large workflow counts', 'Learning curve for advanced features'],
+    prosB: ['MIT license — truly open source for any use case', 'Clean, intuitive drag-and-drop builder', 'Faster setup — productive in under 10 minutes', 'Lighter resource usage than n8n', 'Good for non-technical team members'],
+    consB: ['Fewer integrations (200+ vs 400+)', 'Limited branching and error handling', 'Smaller community and template library', 'No AI/LLM nodes in community edition', 'Less mature documentation'],
+    winner: 'a',
+    winnerReason: 'For self-hosted automation, n8n wins on raw power: 400+ integrations, code nodes, advanced branching, and AI nodes. Choose Activepieces if you want MIT licensing, a simpler UI, and your workflows are straightforward.',
+    faq: [
+      { q: 'Is n8n really open source?', a: 'n8n uses a "Sustainable Use" license (fair-code). You can self-host for free and use it commercially, but you cannot offer it as a managed service to others. Activepieces uses MIT for its community edition.' },
+      { q: 'Which is easier to self-host?', a: 'Both have Docker images and deploy in minutes. Activepieces is slightly easier — fewer environment variables, lighter on resources. n8n needs more RAM for large workflow counts.' },
+      { q: 'Can I migrate from n8n to Activepieces?', a: 'There is no direct migration tool. You would need to rebuild workflows manually. Export your n8n workflows as JSON for reference before migrating.' },
+      { q: 'Which handles complex workflows better?', a: 'n8n handles complex workflows better with its code nodes, branching logic, error handling, and sub-workflow support. Activepieces is designed for simpler linear flows.' },
+    ],
+    keywords: ['n8n vs activepieces', 'self hosted automation', 'n8n alternative', 'activepieces vs n8n', 'open source zapier alternative', 'best self hosted automation tool'],
+  },
+  {
+    slug: 'openproject-vs-plane',
+    productA: {
+      name: 'OpenProject', tagline: 'Full-featured project management with Gantt, Agile, and BIM', logo: '📋',
+      url: 'https://openproject.org', github: 'https://github.com/opf/openproject',
+      license: 'GPL-3.0 (community)', selfHosted: true, docker: true,
+      dockerCompose: 'version: "3"\nservices:\n  openproject:\n    image: openproject/community\n    ports:\n      - "8080:80"\n    volumes:\n      - op_data:/var/openproject\n    restart: unless-stopped\nvolumes:\n  op_data:',
+      pricing: 'Free (community) / Enterprise $7.25/user/mo', difficulty: 'Hard',
+    },
+    productB: {
+      name: 'Plane', tagline: 'Modern open-source issue tracker and project planner', logo: '✈️',
+      url: 'https://plane.so', github: 'https://github.com/makeplane/plane',
+      license: 'AGPL-3.0', selfHosted: true, docker: true,
+      dockerCompose: 'version: "3"\nservices:\n  plane:\n    image: makeplane/plane\n    ports:\n      - "3000:3000"\n    volumes:\n      - plane_data:/app/data\n    restart: unless-stopped\nvolumes:\n  plane_data:',
+      pricing: 'Free (self-hosted) / Cloud $7/user/mo', difficulty: 'Medium',
+    },
+    title: 'OpenProject vs Plane — Best Self-Hosted Project Management in 2026',
+    h1: 'OpenProject vs Plane: Self-Hosted PM Comparison',
+    description: 'OpenProject vs Plane head-to-head comparison. Features, pricing, self-hosting difficulty, Agile support, and which project management tool wins for your team.',
+    summary: 'OpenProject wins for enterprises needing Gantt charts, time tracking, and BIM support. Plane wins for modern teams wanting a fast, clean interface inspired by Linear and Jira.',
+    features: [
+      { name: 'Open Source', a: 'GPL-3.0', b: 'AGPL-3.0' },
+      { name: 'Self-Hosted', a: true, b: true },
+      { name: 'Docker Deploy', a: true, b: true },
+      { name: 'Gantt Charts', a: true, b: false },
+      { name: 'Kanban Boards', a: true, b: true },
+      { name: 'Sprint Planning', a: true, b: true },
+      { name: 'Time Tracking', a: true, b: 'Basic' },
+      { name: 'Wiki/Docs', a: true, b: true },
+      { name: 'Roadmaps', a: true, b: true },
+      { name: 'Custom Fields', a: true, b: true },
+      { name: 'API Access', a: 'REST', b: 'REST' },
+      { name: 'SSO/SAML', a: true, b: 'Enterprise only' },
+      { name: 'BIM Support', a: true, b: false },
+      { name: 'Mobile App', a: 'PWA', b: 'PWA' },
+    ],
+    prosA: ['Mature and battle-tested — used by enterprises worldwide', 'Full Gantt chart support with dependencies and milestones', 'Built-in time tracking and cost reporting', 'BIM support for construction/engineering teams', 'SSO with SAML, LDAP, and OIDC', 'Comprehensive documentation and enterprise support'],
+    consA: ['UI feels dated compared to modern tools', 'Steep learning curve — complex to set up and configure', 'Resource-heavy — needs significant RAM and storage', 'Docker setup requires multiple containers', 'Slower development pace than newer tools'],
+    prosB: ['Modern, fast UI inspired by Linear and Jira', 'Lightweight Docker deployment (single compose file)', 'Active development with frequent feature releases', 'Cycles, modules, and views for flexible project organization', 'Good GitHub/GitLab integration', 'Clean API for automation'],
+    consB: ['No Gantt charts (roadmap view is simpler)', 'Less mature — still adding core features', 'No built-in time tracking for detailed reporting', 'SSO only available in enterprise/paid tier', 'Smaller community and fewer third-party integrations'],
+    winner: 'tie',
+    winnerReason: 'It depends on your team. OpenProject for established enterprises that need Gantt, time tracking, and compliance features. Plane for modern software teams that want speed, clean UX, and rapid iteration.',
+    faq: [
+      { q: 'Is OpenProject free to self-host?', a: 'Yes. The community edition is free under GPL-3.0. Enterprise features (SSO, additional security, support) require a paid license starting at $7.25/user/month.' },
+      { q: 'Is Plane ready for production use?', a: 'Plane is actively developed and usable for production. It covers issue tracking, sprints, kanban, and roadmaps well. It lacks some enterprise features like Gantt charts and advanced time tracking.' },
+      { q: 'Which is easier to self-host?', a: 'Plane is easier. Its Docker Compose setup is simpler and lighter on resources. OpenProject requires more configuration and RAM but has better documentation for complex deployments.' },
+      { q: 'Can Plane replace Jira?', a: 'For software teams using basic Jira features (issues, sprints, boards), yes. Plane has a modern UI and covers core agile workflows. It does not match Jira\'s full feature set for complex enterprise workflows.' },
+    ],
+    keywords: ['openproject vs plane', 'self hosted project management', 'openproject alternative', 'plane so vs openproject', 'best self hosted pm tool', 'open source jira alternative'],
+  },
+  {
+    slug: 'docmost-vs-bookstack',
+    productA: {
+      name: 'Docmost', tagline: 'Modern collaborative wiki with real-time editing', logo: '📖',
+      url: 'https://docmost.com', github: 'https://github.com/docmost/docmost',
+      license: 'AGPL-3.0', selfHosted: true, docker: true,
+      dockerCompose: 'services:\n  docmost:\n    image: docmost/docmost:latest\n    ports: ["3000:3000"]\n    volumes:\n      - docmost_data:/app/data\n    depends_on: [postgres, redis]\n  postgres:\n    image: postgres:16-alpine\n  redis:\n    image: redis:7-alpine\nvolumes:\n  docmost_data:',
+      pricing: 'Free (self-hosted) / Cloud $8/user/mo', difficulty: 'Easy',
+    },
+    productB: {
+      name: 'BookStack', tagline: 'Documentation platform with Books, Chapters, Pages', logo: '📚',
+      url: 'https://www.bookstackapp.com', github: 'https://github.com/BookStackApp/BookStack',
+      license: 'MIT', selfHosted: true, docker: true,
+      dockerCompose: 'services:\n  bookstack:\n    image: lscr.io/linuxserver/bookstack:latest\n    ports: ["6875:80"]\n    volumes:\n      - bookstack_data:/config\n    depends_on: [mariadb]\n  mariadb:\n    image: mariadb:11\nvolumes:\n  bookstack_data:',
+      pricing: 'Free', difficulty: 'Easy',
+    },
+    title: 'Docmost vs BookStack — Best Self-Hosted Wiki in 2026',
+    h1: 'Docmost vs BookStack: Self-Hosted Wiki Comparison',
+    description: 'Docmost vs BookStack head-to-head comparison. Features, real-time editing, licensing, self-hosting difficulty, and which wiki tool wins for your team.',
+    summary: 'Docmost wins for teams wanting real-time collaborative editing with a modern Notion-like interface. BookStack wins for teams wanting MIT licensing, intuitive book hierarchy, and LDAP/SAML authentication.',
+    features: [
+      { name: 'Open Source License', a: 'AGPL-3.0', b: 'MIT' },
+      { name: 'Self-Hosted', a: true, b: true },
+      { name: 'Docker Deploy', a: true, b: true },
+      { name: 'Real-time Collaboration', a: true, b: false },
+      { name: 'WYSIWYG Editor', a: true, b: true },
+      { name: 'Markdown Support', a: true, b: true },
+      { name: 'Page Hierarchy', a: 'Spaces + pages', b: 'Books → Chapters → Pages' },
+      { name: 'SSO/SAML', a: true, b: true },
+      { name: 'LDAP Auth', a: false, b: true },
+      { name: 'Draw.io Integration', a: true, b: true },
+      { name: 'API Access', a: false, b: true },
+      { name: 'Mobile App', a: false, b: false },
+    ],
+    prosA: ['Real-time collaborative editing — multiple users edit simultaneously', 'Modern, clean UI inspired by Notion', 'Spaces for organizing different team knowledge bases', 'Single Docker image (with Postgres + Redis)'],
+    consA: ['Young project — still maturing', 'No LDAP authentication', 'No public REST API yet', 'Smaller community than BookStack'],
+    prosB: ['MIT license — most permissive wiki option', 'Intuitive Book → Chapter → Page structure', 'LDAP, SAML, OIDC, and CAS authentication', 'REST API for automation and integrations', 'Mature project with large community'],
+    consB: ['No real-time collaborative editing', 'PHP-based stack (some prefer Node)', 'WYSIWYG editor is functional but less modern', 'No built-in whiteboard or diagramming'],
+    winner: 'tie',
+    winnerReason: 'It depends on your priority. Docmost for real-time collaboration and modern UX. BookStack for MIT licensing, LDAP/SAML, and a mature API. Both are excellent self-hosted wikis.',
+    faq: [
+      { q: 'Is Docmost free to self-host?', a: 'Yes. Docmost is AGPL-3.0 and free to self-host. The paid cloud version adds managed hosting and priority support.' },
+      { q: 'Does BookStack support real-time editing?', a: 'No. BookStack does not have real-time collaborative editing. Each user edits independently, with page locking to prevent conflicts.' },
+      { q: 'Which is easier to self-host?', a: 'Both are easy. Docmost needs PostgreSQL and Redis. BookStack needs MySQL/MariaDB. Both have Docker images that work out of the box.' },
+      { q: 'Can I migrate between them?', a: 'Both support Markdown export, so you can move content. However, the hierarchy models differ (Spaces vs Books), so some manual reorganization is needed.' },
+    ],
+    keywords: ['docmost vs bookstack', 'self hosted wiki comparison', 'best self hosted wiki 2026', 'docmost alternative', 'bookstack vs docmost', 'open source wiki'],
+  },
+  {
+    slug: 'openproject-vs-taiga',
+    productA: {
+      name: 'OpenProject', tagline: 'Full-featured project management with Gantt, Agile, and BIM', logo: '📋',
+      url: 'https://openproject.org', github: 'https://github.com/opf/openproject',
+      license: 'GPL-3.0 (community)', selfHosted: true, docker: true,
+      dockerCompose: 'services:\n  openproject:\n    image: openproject/community:latest\n    ports: ["8080:80"]\n    volumes:\n      - op_data:/var/openproject\nvolumes:\n  op_data:',
+      pricing: 'Free (community) / Enterprise $7.25/user/mo', difficulty: 'Hard',
+    },
+    productB: {
+      name: 'Taiga', tagline: 'Agile project management for cross-functional teams', logo: '🎯',
+      url: 'https://taiga.io', github: 'https://github.com/kaleidos-ventures/taiga',
+      license: 'MPL-2.0', selfHosted: true, docker: true,
+      dockerCompose: 'services:\n  taiga:\n    image: taiga/taiga:latest\n    ports: ["9000:80"]\n    depends_on: [postgres, rabbitmq, redis]\n  postgres:\n    image: postgres:14\n  rabbitmq:\n    image: rabbitmq:3-management\n  redis:\n    image: redis:7-alpine',
+      pricing: 'Free (self-hosted) / Cloud $5/user/mo', difficulty: 'Medium',
+    },
+    title: 'OpenProject vs Taiga — Self-Hosted Agile PM Comparison',
+    h1: 'OpenProject vs Taiga: Which PM Tool Is Right for You?',
+    description: 'OpenProject vs Taiga head-to-head. Gantt charts, Agile boards, time tracking, self-hosting difficulty, and which project management tool wins for different teams.',
+    summary: 'OpenProject wins for teams needing Gantt charts, time tracking, and enterprise compliance. Taiga wins for pure Agile/Scrum teams wanting a cleaner UI and faster setup.',
+    features: [
+      { name: 'Open Source', a: 'GPL-3.0', b: 'MPL-2.0' },
+      { name: 'Self-Hosted', a: true, b: true },
+      { name: 'Docker Deploy', a: true, b: true },
+      { name: 'Gantt Charts', a: true, b: false },
+      { name: 'Kanban Boards', a: true, b: true },
+      { name: 'Scrum Sprints', a: true, b: true },
+      { name: 'Backlog Management', a: true, b: true },
+      { name: 'Time Tracking', a: true, b: 'Basic' },
+      { name: 'Wiki/Docs', a: true, b: true },
+      { name: 'Epics Support', a: true, b: true },
+      { name: 'Import from Jira', a: true, b: true },
+      { name: 'SSO/SAML', a: true, b: 'Paid only' },
+      { name: 'BIM Support', a: true, b: false },
+    ],
+    prosA: ['Full Gantt charts with dependencies and milestones', 'Built-in time and cost tracking', 'BIM support for construction/engineering', 'Enterprise-grade SSO/SAML/LDAP', 'Mature and battle-tested'],
+    consA: ['Complex setup — steep learning curve', 'Resource-heavy (4GB+ RAM)', 'UI feels dated', 'Docker setup needs multiple containers'],
+    prosB: ['Clean, focused Agile/Scrum UI', 'Kanban + Scrum boards in one project', 'Easy import from Jira, Trello, Asana', 'Lighter on resources than OpenProject'],
+    consB: ['No Gantt charts or timeline view', 'No built-in time tracking', 'Community edition lacks some features', 'Docker setup still needs 4 containers'],
+    winner: 'a',
+    winnerReason: 'OpenProject wins for the broader feature set: Gantt charts, time tracking, BIM, and enterprise auth. Choose Taiga only if your team is purely Agile/Scrum and does not need Gantt or time tracking.',
+    faq: [
+      { q: 'Is OpenProject really free?', a: 'The community edition is free under GPL-3.0. Enterprise features (SSO, 2FA, custom fields) require a paid license starting at $7.25/user/month.' },
+      { q: 'Does Taiga have Gantt charts?', a: 'No. Taiga focuses on Agile/Scrum workflows with Kanban boards, backlogs, and sprints. For Gantt charts, use OpenProject or Plane.' },
+      { q: 'Which is better for Scrum?', a: 'Taiga is better for pure Scrum. Its sprint planning, velocity tracking, and burndown charts are more polished. OpenProject supports Scrum but its UI is less focused.' },
+      { q: 'Can I import from Jira?', a: 'Both support Jira import. Taiga also imports from Trello, Asana, and GitHub Issues. OpenProject imports from Jira and CSV.' },
+    ],
+    keywords: ['openproject vs taiga', 'self hosted project management', 'taiga vs openproject', 'open source jira alternative', 'agile project management self hosted', 'scrum tool open source'],
+  },
+  {
+    slug: 'mattermost-vs-zulip',
+    productA: {
+      name: 'Mattermost', tagline: 'Slack-compatible team chat for secure organizations', logo: '🔵',
+      url: 'https://mattermost.com', github: 'https://github.com/mattermost/mattermost',
+      license: 'AGPL-3.0 (team)', selfHosted: true, docker: true,
+      dockerCompose: 'services:\n  mattermost:\n    image: mattermost/mattermost-preview:latest\n    ports: ["8065:8065"]\n    volumes:\n      - mm_data:/mattermost/data\nvolumes:\n  mm_data:',
+      pricing: 'Free (team) / Enterprise $10/user/mo', difficulty: 'Medium',
+    },
+    productB: {
+      name: 'Zulip', tagline: 'Threaded team chat combining email-style topics with real-time', logo: '💬',
+      url: 'https://zulip.com', github: 'https://github.com/zulip/zulip',
+      license: 'Apache-2.0', selfHosted: true, docker: true,
+      pricing: 'Free (self-hosted) / Cloud $6.67/user/mo', difficulty: 'Hard',
+    },
+    title: 'Mattermost vs Zulip — Best Self-Hosted Team Chat in 2026',
+    h1: 'Mattermost vs Zulip: Self-Hosted Chat Comparison',
+    description: 'Mattermost vs Zulip head-to-head comparison. Threading model, integrations, self-hosting difficulty, and which team chat tool wins for your organization.',
+    summary: 'Mattermost wins for teams wanting a Slack-like experience with familiar channels. Zulip wins for organizations that value threaded conversations to keep discussions organized.',
+    features: [
+      { name: 'Open Source', a: 'AGPL-3.0 (team)', b: 'Apache-2.0' },
+      { name: 'Self-Hosted', a: true, b: true },
+      { name: 'Docker Deploy', a: true, b: true },
+      { name: 'Threaded Conversations', a: 'Optional', b: 'Core feature' },
+      { name: 'Channel-based Chat', a: true, b: 'Stream + topic' },
+      { name: 'E2E Encryption', a: false, b: false },
+      { name: 'SSO/SAML', a: true, b: true },
+      { name: 'LDAP', a: true, b: true },
+      { name: 'Integrations', a: 'Slack-compatible', b: '100+ native' },
+      { name: 'Mobile App', a: true, b: true },
+      { name: 'Desktop App', a: true, b: true },
+      { name: 'Markdown Support', a: true, b: true },
+      { name: 'LaTeX/Math', a: false, b: true },
+      { name: 'Code Blocks', a: true, b: true },
+    ],
+    prosA: ['Familiar Slack-like interface — easy adoption', 'Slack-compatible webhooks and integrations', 'Built-in playbook for incident management', 'Strong compliance features (HIPAA, FedRAMP)', 'Native desktop and mobile apps'],
+    consA: ['Enterprise features require paid license', 'Flat channel model — threads are optional', 'Can feel noisy without threading discipline'],
+    prosB: ['Threaded topics keep conversations organized', 'Powerful search across all messages', '100+ native integrations (GitHub, Jira, Sentry)', 'LaTeX and code syntax support', 'Apache-2.0 license (most permissive)'],
+    consB: ['Threaded UI has a learning curve', 'Resource-heavy (2GB+ RAM minimum)', 'Docker setup is complex', 'Fewer third-party plugins than Slack/Mattermost'],
+    winner: 'tie',
+    winnerReason: 'It depends on your team culture. Mattermost for Slack-like simplicity and adoption speed. Zulip for organizations that need organized, threaded discussions across many topics.',
+    faq: [
+      { q: 'Is Mattermost free to self-host?', a: 'Yes. The Team edition is free under AGPL-3.0. Enterprise features (SSO, compliance, advanced admin) require a paid license at $10/user/month.' },
+      { q: 'Why use Zulip instead of Mattermost?', a: 'Zulip\'s topic-based threading keeps conversations organized. In Mattermost (like Slack), channels get noisy fast. In Zulip, each stream has topics, so you can follow specific discussions without missing context.' },
+      { q: 'Which is easier to self-host?', a: 'Mattermost is easier. Its Docker setup is simpler and needs fewer containers. Zulip requires more configuration (Postgres, Redis, RabbitMQ, memcached).' },
+      { q: 'Can I migrate from Slack?', a: 'Mattermost has a Slack import tool that migrates channels, messages, and users. Zulip does not have a direct Slack import, though you can import via API.' },
+    ],
+    keywords: ['mattermost vs zulip', 'self hosted chat', 'mattermost alternative', 'zulip vs mattermost', 'open source slack alternative', 'best self hosted team chat'],
+  },
+  {
+    slug: 'docmost-vs-wiki-js',
+    productA: {
+      name: 'Docmost', tagline: 'Open-source collaborative wiki with a Notion-like editor', logo: '📄',
+      url: 'https://docmost.com', github: 'https://github.com/docmost/docmost',
+      license: 'AGPL-3.0', selfHosted: true, docker: true,
+      dockerCompose: `version: '3'
+services:
+  docmost:
+    image: docmost/docmost:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - APP_URL=http://localhost:3000
+      - DATABASE_URL=postgresql://docmost:changeme@db:5432/docmost
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=docmost
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=docmost
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+volumes:
+  db_data:`,
+      pricing: 'Free (self-hosted) / Cloud from $12/mo', difficulty: 'Easy',
+    },
+    productB: {
+      name: 'Wiki.js', tagline: 'Powerful wiki engine with Git integration and multiple storage backends', logo: '📚',
+      url: 'https://js.wiki', github: 'https://github.com/requarks/wiki',
+      license: 'AGPL-3.0', selfHosted: true, docker: true,
+      dockerCompose: `version: '3'
+services:
+  wiki:
+    image: requarks/wiki:2
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_TYPE=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=wiki
+      - DB_PASS=changeme
+      - DB_NAME=wiki
+    depends_on:
+      - db
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=wiki
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_DB=wiki
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:`,
+      pricing: 'Free (self-hosted)', difficulty: 'Medium',
+    },
+    title: 'Docmost vs Wiki.js — Best Self-Hosted Wiki 2026',
+    h1: 'Docmost vs Wiki.js: Modern Wiki Comparison',
+    description: 'Docmost vs Wiki.js comparison. Notion-like collaborative editor vs Git-backed multi-engine wiki. Features, self-hosting, and which wiki wins for your team.',
+    summary: 'Docmost wins for teams wanting a Notion-like editing experience with real-time collaboration. Wiki.js wins for teams that need Git-backed content, multiple storage backends, and enterprise-grade authentication.',
+    features: [
+      { name: 'Editor Type', a: 'WYSIWYG (Notion-like)', b: 'WYSIWYG + Markdown' },
+      { name: 'Real-time Collaboration', a: true, b: false },
+      { name: 'Git Integration', a: false, b: true },
+      { name: 'Storage Backends', a: 'PostgreSQL', b: 'Git, DB, Local, S3' },
+      { name: 'Authentication', a: 'Local + OIDC', b: 'Local, OAuth, SAML, LDAP, OIDC' },
+      { name: 'Page Hierarchy', a: 'Nested spaces + pages', b: 'Tree structure' },
+      { name: 'Search', a: 'Full-text', b: 'Full-text + search engines' },
+      { name: 'Docker Deployment', a: true, b: true },
+      { name: 'License', a: 'AGPL-3.0', b: 'AGPL-3.0' },
+      { name: 'Draw Diagrams', a: 'Built-in draw.io', b: 'Via Mermaid' },
+    ],
+    prosA: ['Notion-like block editor is intuitive for non-technical users', 'Real-time collaborative editing (multiple cursors)', 'Clean modern UI that feels like a SaaS product', 'Built-in draw.io diagram support', 'Fast setup with single Docker Compose file'],
+    consA: ['Newer project — smaller community and fewer integrations', 'No Git integration for version control', 'Only PostgreSQL as storage backend', 'Limited theming and customization options'],
+    prosB: ['Git-backed storage keeps your wiki in version control', 'Supports multiple storage backends (Git, PostgreSQL, MySQL, S3)', 'Enterprise authentication: SAML, LDAP, OAuth, Active Directory', 'Localization in 30+ languages', 'Mature project with large community (25k+ GitHub stars)'],
+    consB: ['No real-time collaborative editing', 'UI feels more technical and less modern', 'Setup is more complex with multiple configuration options', 'v3 rewrite has been in progress for a long time'],
+    winner: 'a',
+    winnerReason: 'For most teams in 2026, Docmost is the better choice. Its Notion-like editor with real-time collaboration lowers the adoption barrier. Wiki.js is the right pick only if you need Git-backed content storage or enterprise SAML/LDAP authentication.',
+    faq: [
+      { q: 'Is Docmost a good Notion replacement?', a: 'Yes. Docmost has a very similar block-based editor with real-time collaboration. It is the closest self-hosted alternative to Notion for teams that want wiki-style knowledge management.' },
+      { q: 'Can Wiki.js store pages in a Git repository?', a: 'Yes. Wiki.js can use Git as a storage backend, meaning all your wiki content lives in a Git repo with full version history, branching, and pull request workflows.' },
+      { q: 'Which is easier to set up?', a: 'Docmost. One Docker Compose file with three services (app, PostgreSQL, Redis). Wiki.js requires more configuration, especially if you want Git or SAML integration.' },
+    ],
+    keywords: ['docmost vs wiki.js', 'docmost vs wikijs', 'self hosted wiki comparison', 'best self hosted wiki 2026', 'docmost review', 'wiki.js alternative', 'notion self hosted alternative'],
   },
 ]

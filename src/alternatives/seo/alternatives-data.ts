@@ -263,11 +263,12 @@ const _RAW_PAGES: AlternativePage[] = [
       { name: 'Plane', description: 'Modern issue tracking and project management with a beautiful UI.', url: 'https://plane.so', github: 'https://github.com/makeplane/plane', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3000:3000 makeplane/plane', features: ['Issues', 'Cycles', 'Modules', 'Backlog', 'Kanban', 'Gantt charts'], scenarioTags: ['small_team', 'intermediate', 'docker_ready', 'kanban', 'gantt', 'collaboration', 'api_access'] },
       { name: 'Taiga', description: 'Agile project management with Scrum and Kanban boards.', url: 'https://taiga.io', github: 'https://github.com/kaleidos-ventures/taiga', license: 'MPL-2.0', difficulty: 'Medium', docker: true, features: ['Scrum', 'Kanban', 'Epics', 'Wiki', 'Issue tracking', 'Webhooks'], scenarioTags: ['small_team', 'intermediate', 'docker_ready', 'kanban', 'collaboration', 'wiki', 'webhook', 'api_access'] },
       { name: 'Redmine', description: 'Mature and flexible issue tracker with extensive plugin ecosystem.', url: 'https://www.redmine.org', github: 'https://github.com/redmine/redmine', license: 'GPL-2.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 3000:3000 redmine', features: ['Issue tracking', 'Gantt charts', 'Wiki', 'Forums', 'Time tracking', '200+ plugins'], scenarioTags: ['small_team', 'enterprise', 'beginner_friendly', 'docker_ready', 'kanban', 'gantt', 'wiki', 'ldap', 'api_access'] },
+      { name: 'OpenProject', description: 'Full-featured project management with Gantt charts, Agile boards, time tracking, and BIM support.', url: 'https://openproject.org', github: 'https://github.com/opf/openproject', license: 'GPL-3.0', difficulty: 'Hard', docker: true, dockerCommand: 'docker run -d -p 8080:80 openproject/community', features: ['Gantt charts', 'Agile boards', 'Time tracking', 'BIM', 'Wiki', 'SSO/SAML', 'LDAP'], scenarioTags: ['enterprise', 'advanced_setup', 'docker_ready', 'gantt', 'kanban', 'collaboration', 'ldap', 'sso', 'api_access'] },
     ],
     title: 'Self-Hosted Jira Alternative - Open Source Project Management',
     h1: 'Self-Hosted Jira Alternatives',
-    description: 'Replace Jira with self-hosted project management. Compare Plane, Taiga, and Redmine — no per-user pricing, full control.',
-    explanation: 'Jira charges $7.75-$15.25 per user/month and can feel bloated. Plane offers a modern, fast alternative with similar features. Redmine is battle-tested with 15+ years of development and hundreds of plugins.',
+    description: 'Replace Jira with self-hosted project management. Compare Plane, Taiga, Redmine, and OpenProject — no per-user pricing, full control.',
+    explanation: 'Jira charges $7.75-$15.25 per user/month and can feel bloated. Plane offers a modern, fast alternative. OpenProject adds Gantt charts and BIM support for enterprise teams. Redmine is battle-tested with 15+ years of development and hundreds of plugins.',
     faq: [
       { q: 'Can I migrate from Jira to Plane?', a: 'Yes. Plane supports importing from Jira via CSV export or direct API import for issues and projects.' },
     ],
@@ -718,16 +719,19 @@ const _RAW_PAGES: AlternativePage[] = [
       { name: 'Immich', description: 'Self-hosted Google Photos clone with ML-powered face recognition and search.', url: 'https://immich.app', github: 'https://github.com/immich-app/immich', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, features: ['Photo/video backup', 'Face recognition', 'Map view', 'Search', 'Sharing', 'Mobile app'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'docker_ready', 'backup', 'sharing', 'search', 'mobile_app', 'scalable'] },
       { name: 'PhotoPrism', description: 'AI-powered photo management with automatic categorization and tagging.', url: 'https://photoprism.app', github: 'https://github.com/photoprism/photoprism', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 2342:2342 photoprism/photoprism', features: ['AI tagging', 'Face recognition', 'Map view', 'Search', 'Albums', 'WebDAV sync'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'backup', 'sharing', 'search', 'web_only', 'raspberry_pi'] },
       { name: 'Lychee', description: 'Simple, elegant photo management with albums and sharing.', url: 'https://lycheeorg.github.io', github: 'https://github.com/LycheeOrg/Lychee', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 8080:80 lycheeorg/lychee', features: ['Albums', 'Smart albums', 'Sharing', 'Upload', 'EXIF data', 'Maps'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'lightweight', 'sharing', 'web_only'] },
+      { name: 'Nextcloud Photos', description: 'Photo management built into Nextcloud — best if you already self-host Nextcloud.', url: 'https://github.com/nextcloud/photos', github: 'https://github.com/nextcloud/photos', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 8080:80 nextcloud', features: ['Albums', 'Timeline view', 'Face recognition', 'Sharing', 'Tags', 'Map view'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'docker_ready', 'sharing', 'search', 'raspberry_pi', 'scalable'] },
     ],
-    title: 'Self-Hosted Google Photos Alternative - Open Source Photo Gallery',
-    h1: 'Self-Hosted Google Photos Alternatives',
-    description: 'Replace Google Photos with self-hosted photo management. Compare Immich, PhotoPrism, and Lychee — no storage limits, full privacy.',
-    explanation: 'Google Photos ended free unlimited storage and scans photos for facial recognition. Immich is the most complete Google Photos clone with mobile apps, face recognition, and map view. PhotoPrism adds AI-powered tagging.',
+    title: 'Google Photos Alternative Self Hosted - Best Open Source Options 2025',
+    h1: 'Google Photos Alternative: Self Hosted Options Compared',
+    description: 'Best self hosted Google Photos alternatives. Compare Immich, PhotoPrism, Lychee, and Nextcloud Photos — free, open source, no storage limits, full privacy control.',
+    explanation: 'Google Photos ended free unlimited storage and scans photos for facial recognition. Self hosting your photo library gives you unlimited storage, full privacy, and no subscription fees. Immich is the most complete Google Photos clone with mobile apps, face recognition, and map view. PhotoPrism adds AI-powered tagging. Nextcloud Photos works if you already run Nextcloud.',
     faq: [
       { q: 'Immich vs PhotoPrism — which is better?', a: 'Immich is closer to Google Photos with mobile apps for automatic backup. PhotoPrism has better AI tagging and album organization. Many users run both.' },
       { q: 'Can I auto-backup photos from my phone?', a: 'Yes. Immich has official iOS and Android apps that automatically backup photos, just like Google Photos.' },
+      { q: 'What is the best self hosted Google Photos alternative?', a: 'Immich is the most feature-complete self hosted Google Photos alternative with mobile apps, face recognition, map view, and sharing. PhotoPrism is easier to set up and has better AI tagging. Lychee is the lightest option for simple album management.' },
+      { q: 'Can I run a self hosted photo gallery on Raspberry Pi?', a: 'Yes. PhotoPrism and Lychee both run well on Raspberry Pi 4+. Immich requires more resources but works on Pi 5 or any home server with 4GB+ RAM.' },
     ],
-    keywords: ['self-hosted google photos', 'google photos alternative open source', 'immich', 'photoprism', 'self-hosted Google Photos alternative', 'best open source Google Photos alternative', 'free Google Photos replacement'],
+    keywords: ['google photos alternative self hosted', 'self hosted google photos', 'google photos alternative open source', 'immich', 'photoprism', 'self-hosted Google Photos alternative', 'best self hosted photo gallery', 'best open source Google Photos alternative', 'free Google Photos replacement', 'google photos self hosted docker'],
   },
 
   // === Automation ===
@@ -898,6 +902,36 @@ const _RAW_PAGES: AlternativePage[] = [
     ],
     keywords: ['obsidian self hosted', 'obsidian alternative open source', 'self-hosted obsidian', 'logseq vs obsidian', 'trilium notes', 'obsidian self hosted alternative', 'best self-hosted knowledge management'],
   },
+
+  // === SEO Tools (Free Alternatives) ===
+  {
+    slug: 'semrush',
+    saasName: 'Semrush',
+    category: 'SEO Tools',
+    icon: '🔍',
+    alternatives: [
+      { name: 'Google Search Console', description: 'Free official tool for monitoring search performance, indexing status, and Core Web Vitals directly from Google.', url: 'https://search.google.com/search-console', github: '', license: 'Free (Google)', difficulty: 'Easy', docker: false, features: ['Search analytics', 'Index coverage', 'URL inspection', 'Sitemaps', 'Core Web Vitals', 'Mobile usability'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring'] },
+      { name: 'Ubersuggest', description: 'Keyword research, competitor analysis, and content ideas with 3 free searches per day.', url: 'https://neilpatel.com/ubersuggest', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Keyword research', 'Competitor analysis', 'Content ideas', 'Rank tracking', 'Site audit', 'Backlink data'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Screaming Frog', description: 'Desktop website crawler for technical SEO audits. Free for up to 500 URLs per crawl.', url: 'https://www.screamingfrog.co.uk/seo-spider', github: '', license: 'Freemium (500 URLs free)', difficulty: 'Medium', docker: false, features: ['Site crawling', 'Broken links', 'Redirect chains', 'Metadata analysis', 'Page speed', 'Structured data'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'desktop_app', 'monitoring'] },
+      { name: 'Ahrefs Webmaster Tools', description: 'Free backlink analysis and site health monitoring from the team behind Ahrefs.', url: 'https://ahrefs.com/webmaster-tools', github: '', license: 'Free (limited)', difficulty: 'Easy', docker: false, features: ['Backlink analysis', 'Site health', 'Keyword rankings', 'Organic traffic', 'Content audit'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring', 'search'] },
+      { name: 'SE Ranking', description: 'Full SEO suite with keyword tracking, site audit, and competitor analysis. 14-day free trial.', url: 'https://seranking.com', github: '', license: 'Freemium trial', difficulty: 'Easy', docker: false, features: ['Keyword tracking', 'Site audit', 'Competitor analysis', 'Backlink checker', 'On-page SEO', 'Marketing plan'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring', 'search'] },
+      { name: 'Serpstat', description: 'All-in-one SEO platform with keyword research, competitor analysis, and site auditing.', url: 'https://serpstat.com', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Keyword research', 'Competitor analysis', 'Site audit', 'Backlink analysis', 'Rank tracking', 'Content marketing'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Moz Free SEO Tools', description: 'Domain Authority checker, keyword explorer, and link explorer from one of the original SEO companies.', url: 'https://moz.com/free-seo-tools', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Domain Authority', 'Keyword Explorer', 'Link Explorer', 'MozBar browser extension', 'Competitor research'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Mangools', description: 'User-friendly SEO toolkit with SERP analysis, keyword research, and backlink tracking. 10-day free trial.', url: 'https://mangools.com', github: '', license: 'Freemium trial', difficulty: 'Easy', docker: false, features: ['SERP analysis', 'Keyword research', 'Backlink tracking', 'SEO browser extension', 'Rank tracking'], scenarioTags: ['solo_dev', 'beginner_friendly', 'web_only', 'search'] },
+      { name: 'Seobility', description: 'Website audit and continuous SEO monitoring with clear improvement suggestions.', url: 'https://www.seobility.net', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Site audit', 'Keyword monitoring', 'Backlink check', 'SEO comparison', 'Content optimization', 'Crawl errors'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'monitoring'] },
+    ],
+    title: 'Free Semrush Alternatives — 9 Free SEO Tools (2026)',
+    h1: 'Free Semrush Alternatives for 2026',
+    description: 'Compare 9 free alternatives to Semrush ($140/mo). Google Search Console, Ubersuggest, Screaming Frog, Ahrefs Webmaster Tools, and more — zero cost.',
+    explanation: 'Semrush starts at $139.95/month — expensive for indie hackers and small teams. These free alternatives cover most of what you need: keyword research, site audits, backlink analysis, and rank tracking. Google Search Console alone handles search analytics and indexing. Combined with Ubersuggest for keywords and Screaming Frog for technical audits, you get 80% of Semrush\'s value at zero cost.',
+    faq: [
+      { q: 'Is there a completely free alternative to Semrush?', a: 'Yes. Google Search Console is 100% free and covers search analytics, indexing status, and Core Web Vitals. Combine it with Ubersuggest (3 free searches/day) and Screaming Frog (500 URLs free) for a complete SEO toolkit at zero cost.' },
+      { q: 'What is the best free keyword research tool?', a: 'Google Search Console shows real keyword data from your site for free. For discovery, Ubersuggest gives 3 free searches per day with keyword volume, difficulty, and related terms.' },
+      { q: 'Can I do a site audit without Semrush?', a: 'Yes. Screaming Frog crawls up to 500 URLs for free and finds broken links, redirect chains, missing meta tags, and duplicate content. Seobility also audits up to 1,000 pages on its free plan.' },
+      { q: 'Which free tool is best for backlink analysis?', a: 'Ahrefs Webmaster Tools provides free backlink data for your own verified websites. For competitor backlink research, Serpstat and Mangools offer limited free access.' },
+    ],
+    keywords: ['free semrush alternative', 'semrush free alternative', 'free seo tools 2026', 'semrush replacement free', 'free keyword research tool', 'free site audit tool', 'ahrefs webmaster tools free', 'open source seo tool', 'free backlink checker'],
+  },
 ]
 
 function mergeGitHubStats(pages: AlternativePage[]): AlternativePage[] {
@@ -947,4 +981,5 @@ export const CATEGORIES = [
   { name: 'Music Streaming', icon: '🎶', tools: ['navidrome'], applicationCategory: 'MultimediaApplication' },
   { name: 'File Sync', icon: '🔄', tools: ['syncthing'], applicationCategory: 'UtilitiesApplication' },
   { name: 'Knowledge Management', icon: '📄', tools: ['docmost', 'obsidian'], applicationCategory: 'ProductivityApplication' },
+  { name: 'SEO Tools', icon: '🔍', tools: ['semrush'], applicationCategory: 'DeveloperApplication' },
 ]
