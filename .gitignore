@@ -70,9 +70,3 @@ scripts/vite-llm-cost-inputs.cjs
 # Local session context
 .context/
 
-
-# More internal scripts
-scripts/gsc-*.cjs
-scripts/fetch-gsc-data.cjs
-scripts/submit-gsc-index.cjs
-scripts/seo-health-check.cjs

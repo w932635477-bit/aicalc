@@ -1,6 +1,6 @@
 # aicalc.cloud — Free AI Developer Tools
 
-Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero server-side processing for core features. 21 tools, 19 LLM models tracked.
+Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero server-side processing for core features. 17 tools, 19 LLM models tracked.
 
 **Live at [aicalc.cloud](https://aicalc.cloud)**
 
@@ -25,16 +25,12 @@ Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero 
 | [Voice Agent Pricing](https://aicalc.cloud/voice-agent-pricing/) | Compare voice AI pricing across providers |
 | [AI Code Review Checklist](https://aicalc.cloud/ai-code-review/) | Interactive checklist for reviewing AI-generated code |
 | [Agent Data Access](https://aicalc.cloud/agent-data-access/) | Evaluate data access patterns for AI agents |
-| [Env Scanner](https://aicalc.cloud/env-scanner/) | Scan .env files for 6 types of security issues |
-| [Dep Shield](https://aicalc.cloud/dep-shield/) | npm dependency vulnerability scanner using OSV API |
-| [AI Agent Security Checker](https://aicalc.cloud/ai-agent-security/) | Scan prompts, code, and configs for 17+ security rules |
-| [LLM Pricing Dashboard](https://aicalc.cloud/llm-pricing/) | Live pricing comparison dashboard for 19 models |
 
 ## Tech Stack
 
 - **Vite** + **React 19** + **TypeScript** + **Tailwind CSS 4**
 - Pure static site — no database, no user accounts
-- Deployed on **Vercel** with 331 static pages
+- Deployed on **Vercel** with 294 static pages
 - Client-side tokenization via [js-tiktoken](https://github.com/openai/tiktoken)
 - Cron parsing via [cron-parser](https://github.com/harrisiirak/cron-parser)
 
