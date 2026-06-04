@@ -4,8 +4,6 @@ Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero 
 
 **Live at [aicalc.cloud](https://aicalc.cloud)**
 
-![aicalc.cloud homepage](docs/screenshot.png)
-
 ## Tools
 
 | Tool | What it does |
@@ -31,8 +29,6 @@ Privacy-first, fully client-side AI engineering utilities. Zero telemetry, zero 
 | [Env Scanner](https://aicalc.cloud/env-scanner/) | Scan code for leaked environment variables and secrets — runs in your browser |
 | [Dep Shield](https://aicalc.cloud/dep-shield/) | Check npm dependencies for known vulnerabilities using OSV database |
 | [AI Agent Security Checker](https://aicalc.cloud/ai-agent-security/) | Evaluate AI agent security posture against 17 rules with scoring |
-| [AI Agent Data Access](https://aicalc.cloud/ai-agent-data-access/) | Audit AI agent data access patterns against security best practices |
-| [AI Agent Safety](https://aicalc.cloud/agent-safety/) | Interactive safety checklist for AI agent deployment |
 
 ## Tech Stack
 
