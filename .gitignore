@@ -79,3 +79,9 @@ data/gsc-export/
 scripts/gsc-*.cjs
 scripts/fetch-gsc-data.cjs
 scripts/submit-gsc-index.cjs
+
+# Local dev cache
+.vite/
+
+# Internal design docs
+docs/designs/
