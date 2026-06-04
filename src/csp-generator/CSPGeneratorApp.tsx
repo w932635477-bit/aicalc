@@ -1,5 +1,7 @@
 import { useState, useMemo, useCallback } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 import {
   type CSPDirective, type CSPPolicy, type DirectiveConfig,
   CSP_DIRECTIVES, DIRECTIVE_SOURCES, DIRECTIVE_ALLOWS_HOSTS,
@@ -289,11 +291,13 @@ export default function CSPGeneratorApp() {
           <button
             type="button"
             onClick={copy}
-            className={`w-full py-3 rounded-xl text-sm font-semibold transition-colors ${copied ? 'bg-[#30d158]/10 text-[#1d8a3a]' : 'bg-[#0071E3] text-white'}`}
+            className={`w-full py-3 rounded-full text-sm font-semibold transition-colors ${copied ? 'bg-[#30d158]/10 text-[#1d8a3a]' : 'bg-[#0071E3] text-white'}`}
           >
             {copied ? 'Copied!' : 'Copy CSP Header'}
           </button>
         </div>
+        <RelatedTools currentPath="/csp-generator/" />
+        <FaqSchema items={FAQ_DATA.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </main>
     </div>
   )

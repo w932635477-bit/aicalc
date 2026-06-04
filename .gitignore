@@ -71,3 +71,11 @@ scripts/vite-llm-cost-inputs.cjs
 .context/
 
 llm-pricing-test.cjs
+
+# GSC data exports
+data/gsc-export/
+
+# All GSC scripts
+scripts/gsc-*.cjs
+scripts/fetch-gsc-data.cjs
+scripts/submit-gsc-index.cjs

@@ -4,11 +4,25 @@ import { UsageSlider } from './components/UsageSlider'
 import { ComparisonTable } from './components/ComparisonTable'
 import { StaticPricingTable } from './components/StaticPricingTable'
 import { GlobalNav } from './components/GlobalNav'
+import { RelatedTools } from './components/RelatedTools'
+import { FaqSchema } from './components/FaqSchema'
+import { SiteFooter } from './components/SiteFooter'
 import { calculateCosts } from './lib/calculator'
 import type { ModelCostResult, ModelPricing } from './lib/types'
 import pricingData from './data/pricing.json'
 
 const models = pricingData.models as ModelPricing[]
+
+const FAQ_ITEMS = [
+  { q: 'How accurate is the token count?', a: 'For OpenAI models (GPT-5.5, GPT-5.4, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on ~4 characters per token for English text and ~1.5 characters for Chinese text. The cost estimates are accurate enough for budgeting purposes.' },
+  { q: 'Which AI models are supported?', a: 'We support models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude Opus 4.8, Sonnet 4.6, Haiku 4.5, 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 3.5 Flash, 2.5 Flash, 2.5 Flash-Lite, 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).' },
+  { q: 'How often is pricing updated?', a: 'Pricing data is updated weekly from official provider pricing pages. AI providers change their pricing frequently, so we strive to keep the data current.' },
+  { q: 'Is this tool free?', a: 'Yes, completely free. No login required. No API keys needed. All calculations happen in your browser.' },
+  { q: 'What is a token?', a: 'A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. A typical sentence is 10–20 tokens. AI providers charge based on the number of tokens processed.' },
+  { q: 'How do I reduce my AI costs?', a: 'Three strategies: (1) Use cheaper models for simple tasks (e.g., GPT-5.4 Mini instead of GPT-5.5). (2) Shorten your prompts to reduce input tokens. (3) Use models with free tiers for testing (Gemini Flash, Groq).' },
+  { q: 'Can I use this for batch calculations?', a: 'Not yet. Batch calculation (uploading a CSV of prompts) is planned for a future version.' },
+  { q: 'Does this include batch API pricing?', a: 'Currently we show standard API pricing. Batch API pricing (typically 50% cheaper) is not yet included but is coming soon.' },
+]
 
 function App() {
   const [prompt, setPrompt] = useState('')
@@ -42,7 +56,7 @@ function App() {
   }, [handleCalculate])
 
   return (
-    <div className="min-h-screen bg-[#fbfbfd] text-[#1d1d1f]" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f]" onKeyDown={handleKeyDown}>
       <GlobalNav current="/" />
       <div className="max-w-[980px] mx-auto px-6">
         {/* Hero */}
@@ -78,7 +92,7 @@ function App() {
           <button
             onClick={handleCalculate}
             disabled={!prompt.trim() || isLoading}
-            className="w-full py-3.5 px-6 bg-[#0071E3] hover:bg-[#0077ED] disabled:bg-[#d2d2d7] disabled:cursor-not-allowed text-white font-medium rounded-xl transition-all duration-200 cursor-pointer active:scale-[0.98]"
+            className="w-full py-3.5 px-6 bg-[#0071E3] hover:bg-[#0077ED] disabled:bg-[#d2d2d7] disabled:cursor-not-allowed text-white font-medium rounded-full transition-all duration-200 cursor-pointer active:scale-[0.98]"
           >
             Calculate Costs
             <span className="text-white/60 ml-2 text-sm">⌘↵</span>
@@ -195,47 +209,13 @@ function App() {
             Frequently asked questions.
           </h2>
           <div className="max-w-2xl mx-auto">
-            {[
-              {
-                q: 'How accurate is the token count?',
-                a: 'For OpenAI models (GPT-5.5, GPT-5.4, o3, o4-mini), we use tiktoken for exact counts. For Claude, Gemini, and other models, we estimate based on ~4 characters per token for English text and ~1.5 characters for Chinese text. The cost estimates are accurate enough for budgeting purposes.',
-              },
-              {
-                q: 'Which AI models are supported?',
-                a: `We support ${models.length} models across 5 providers: OpenAI (GPT-5.5, GPT-5.4, GPT-5.4 Mini, GPT-4o, GPT-4o Mini, o3, o4-mini), Anthropic (Claude Opus 4.8, Sonnet 4.6, Haiku 4.5, 3.7 Sonnet, 3.5 Haiku, 3 Opus, 3 Haiku), Google (Gemini 3.5 Flash, 2.5 Flash, 2.5 Flash-Lite, 2.0 Flash, 2.0 Flash-Lite, 1.5 Pro, 1.5 Flash, 1.5 Flash-8B), DeepSeek (V4 Flash, V4 Pro), and Groq (Llama 4 Maverick).`,
-              },
-              {
-                q: 'How often is pricing updated?',
-                a: 'Pricing data is updated weekly from official provider pricing pages. AI providers change their pricing frequently, so we strive to keep the data current.',
-              },
-              {
-                q: 'Is this tool free?',
-                a: 'Yes, completely free. No login required. No API keys needed. All calculations happen in your browser.',
-              },
-              {
-                q: 'What is a token?',
-                a: 'A token is the basic unit that AI models use to process text. Roughly, 1 token equals 4 characters in English or about 0.75 words. A typical sentence is 10–20 tokens. AI providers charge based on the number of tokens processed.',
-              },
-              {
-                q: 'How do I reduce my AI costs?',
-                a: 'Three strategies: (1) Use cheaper models for simple tasks (e.g., GPT-5.4 Mini instead of GPT-5.5). (2) Shorten your prompts to reduce input tokens. (3) Use models with free tiers for testing (Gemini Flash, Groq).',
-              },
-              {
-                q: 'Can I use this for batch calculations?',
-                a: 'Not yet. Batch calculation (uploading a CSV of prompts) is planned for a future version.',
-              },
-              {
-                q: 'Does this include batch API pricing?',
-                a: 'Currently we show standard API pricing. Batch API pricing (typically 50% cheaper) is not yet included but is coming soon.',
-              },
-            ].map((item, i) => (
+            {FAQ_ITEMS.map((item, i) => (
               <details
                 key={i}
                 className={`border-t border-[#e8e8ed] ${i === 7 ? 'border-b' : ''}`}
               >
-                <summary className="py-5 text-[15px] font-medium text-[#1d1d1f] cursor-pointer hover:text-[#0071E3] transition-colors flex items-center justify-between">
+                <summary className="py-5 text-[15px] font-medium text-[#1d1d1f] cursor-pointer hover:text-[#0071E3] transition-colors">
                   {item.q}
-                  <span className="text-[#86868b] text-xs group-open:rotate-180 transition-transform duration-200">▼</span>
                 </summary>
                 <div className="pb-5 text-[15px] text-[#86868b] leading-relaxed pr-8">
                   {item.a}
@@ -245,21 +225,10 @@ function App() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-8 border-t border-[#e8e8ed] text-center">
-          <p className="text-sm text-[#86868b]">
-            AI Prompt Cost Calculator · Free &amp; open source
-          </p>
-          <p className="mt-2 text-xs text-[#86868b]">
-            Pricing data sourced from{' '}
-            <a href="https://openai.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">OpenAI</a>,{' '}
-            <a href="https://www.anthropic.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">Anthropic</a>,{' '}
-            <a href="https://ai.google/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">Google</a>,{' '}
-            <a href="https://groq.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">Groq</a>, and{' '}
-            <a href="https://deepseek.com/pricing" className="underline hover:text-[#1d1d1f] transition-colors" target="_blank" rel="noopener noreferrer">DeepSeek</a>.
-          </p>
-        </footer>
+        <RelatedTools currentPath="/" />
+        <FaqSchema items={FAQ_ITEMS.map(f => ({ question: f.q, answer: f.a }))} />
       </div>
+      <SiteFooter />
     </div>
   )
 }

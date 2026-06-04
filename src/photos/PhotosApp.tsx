@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
 import PhotoCard from './PhotoCard'
 import type { PhotoResult, SearchResponse } from './types'
 
@@ -145,7 +146,7 @@ export default function PhotosApp({ initialQuery = '' }: { initialQuery?: string
               type="submit"
               disabled={!query.trim() || loading}
               data-testid="search-button"
-              className="px-5 py-2.5 bg-[#0071E3] text-white rounded-xl font-medium text-sm hover:bg-[#0077ED] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-5 py-2.5 bg-[#0071E3] text-white rounded-full font-medium text-sm hover:bg-[#0077ED] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {loading ? 'Searching…' : 'Search'}
             </button>
@@ -267,6 +268,7 @@ export default function PhotosApp({ initialQuery = '' }: { initialQuery?: string
         <footer className="border-t border-[#e8e8ed] pt-5 text-center text-sm text-[#86868b]">
           <p>Free stock photos from Unsplash, Pexels, and Pixabay. No login, no tracking.</p>
         </footer>
+        <RelatedTools currentPath="/photos/" />
       </main>
     </div>
   )

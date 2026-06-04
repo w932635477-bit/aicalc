@@ -9,6 +9,8 @@ import { DialectSwitcher } from './components/DialectSwitcher'
 import { CopyButton } from './components/CopyButton'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { GlobalNav } from '../components/GlobalNav'
+import { RelatedTools } from '../components/RelatedTools'
+import { FaqSchema } from '../components/FaqSchema'
 import { useT, useLocale } from './i18n'
 
 type Tab = 'builder' | 'explainer'
@@ -245,6 +247,8 @@ export default function CronGeneratorApp() {
             <a href="/" className="text-blue-500 hover:text-blue-600 font-medium transition-colors">{t.footer.link}</a>
           </p>
         </footer>
+        <RelatedTools currentPath="/cron-generator/" />
+        <FaqSchema items={t.faq.items.map((f: { q: string; a: string }) => ({ question: f.q, answer: f.a }))} />
       </div>
     </div>
   )
