@@ -43,9 +43,9 @@ for (const page of LONG_TAIL_PAGES) {
     "name": "How to set up " + page.h1,
     "description": page.description,
     "step": [
-      { "@type": "HowToStep", "text": "Open your crontab editor: run crontab -e in your terminal." },
-      { "@type": "HowToStep", "text": "Add the line: " + page.cron + " /path/to/your/script.sh" },
-      { "@type": "HowToStep", "text": "Save and exit. Verify with crontab -l." }
+      { "@type": "HowToStep", "position": 1, "name": "Open crontab editor", "text": "Open your crontab editor: run crontab -e in your terminal." },
+      { "@type": "HowToStep", "position": 2, "name": "Add the cron line", "text": "Add the line: " + page.cron + " /path/to/your/script.sh" },
+      { "@type": "HowToStep", "position": 3, "name": "Save and verify", "text": "Save and exit. Verify with crontab -l." }
     ]
   };
 
@@ -63,7 +63,9 @@ for (const page of LONG_TAIL_PAGES) {
     <meta property="og:description" content="\${escapeHtml(page.description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="\${BASE_URL}/cron-generator/\${page.slug}/" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="\${BASE_URL}/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="\${BASE_URL}/og-image.png" />
     <meta name="twitter:title" content="\${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="\${escapeHtml(page.description)}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

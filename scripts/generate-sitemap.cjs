@@ -55,6 +55,7 @@ const allUrls = [
   { loc: BASE_URL + '/', priority: '1.0', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/cron-generator/common-patterns/', priority: '0.85', changefreq: 'weekly' },
+  { loc: BASE_URL + '/cron-generator/vercel-cron/', priority: '0.85', changefreq: 'weekly' },
   { loc: BASE_URL + '/alternatives/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/agent-safety/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/voice-agent-pricing/', priority: '0.9', changefreq: 'weekly' },
@@ -80,6 +81,14 @@ const allUrls = [
   { loc: BASE_URL + '/dep-shield/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/ai-agent-security/', priority: '0.9', changefreq: 'weekly' },
   { loc: BASE_URL + '/local-llm-privacy/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/token-optimizer/', priority: '0.9', changefreq: 'weekly' },
+  { loc: BASE_URL + '/aider-tutorial/', priority: '0.85', changefreq: 'monthly' },
+  { loc: BASE_URL + '/microsoft-scout-agent/', priority: '0.85', changefreq: 'monthly' },
+  { loc: BASE_URL + '/sitemap/', priority: '0.6', changefreq: 'weekly' },
+  { loc: BASE_URL + '/about/', priority: '0.5', changefreq: 'monthly' },
+  { loc: BASE_URL + '/privacy-policy/', priority: '0.5', changefreq: 'monthly' },
+  { loc: BASE_URL + '/contact/', priority: '0.5', changefreq: 'monthly' },
+  { loc: BASE_URL + '/terms/', priority: '0.5', changefreq: 'monthly' },
 ]
 
 for (const locale of LOCALES) {

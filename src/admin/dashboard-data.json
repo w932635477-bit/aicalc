@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-05T05:17:39.610Z",
+  "generatedAt": "2026-06-08T03:02:42.045Z",
   "summary": {
-    "totalIndexable": 331,
+    "totalIndexable": 343,
     "totalSubmitted": 225,
-    "coverage": 68,
+    "coverage": 65.6,
     "todaysSubmissions": 0,
     "dailyQuota": 10,
     "remainingToday": 10
@@ -11,9 +11,9 @@
   "sections": [
     {
       "name": "cron-generator",
-      "total": 160,
+      "total": 161,
       "submitted": 0,
-      "remaining": 160
+      "remaining": 161
     },
     {
       "name": "alternatives",
@@ -29,9 +29,9 @@
     },
     {
       "name": "compare",
-      "total": 32,
+      "total": 34,
       "submitted": 0,
-      "remaining": 32
+      "remaining": 34
     },
     {
       "name": "llm-pricing",
@@ -137,6 +137,60 @@
     },
     {
       "name": "ai-agent-security",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "local-llm-privacy",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "token-optimizer",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "aider-tutorial",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "microsoft-scout-agent",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "sitemap",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "about",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "privacy-policy",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "contact",
+      "total": 1,
+      "submitted": 0,
+      "remaining": 1
+    },
+    {
+      "name": "terms",
       "total": 1,
       "submitted": 0,
       "remaining": 1

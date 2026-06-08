@@ -112,24 +112,82 @@ const SEO_SLUG_MAP = {
 };
 
 const SEO_KEYWORDS = {
-  'gpt-5.5': ['gpt-5.5 pricing', 'gpt-5.5 cost', 'gpt-5.5 api price', 'gpt-5.5 per million tokens'],
-  'gpt-5.4': ['gpt-5.4 pricing', 'gpt-5.4 cost', 'gpt-5.4 api price', 'gpt-5.4 per million tokens'],
-  'gpt-5.4-mini': ['gpt-5.4 mini pricing', 'gpt-5.4 mini cost', 'gpt-5.4 mini api price'],
-  'gpt-4o': ['gpt-4o pricing', 'gpt-4o cost', 'gpt-4o api price', 'gpt-4o per million tokens'],
-  'gpt-4o-mini': ['gpt-4o mini pricing', 'gpt-4o mini cost', 'gpt-4o mini api price'],
-  'o3': ['o3 pricing', 'openai o3 cost', 'o3 api price', 'openai reasoning model pricing'],
-  'o4-mini': ['o4-mini pricing', 'openai o4-mini cost', 'o4-mini api price'],
-  'claude-3-7-sonnet-20250219': ['claude 3.7 sonnet pricing', 'claude 3.7 sonnet cost', 'anthropic claude pricing'],
-  'claude-3-5-haiku-20241022': ['claude 3.5 haiku pricing', 'claude haiku cost', 'claude cheap model pricing'],
-  'claude-3-opus-20240229': ['claude 3 opus pricing', 'claude opus cost', 'claude expensive model pricing'],
-  'claude-3-haiku-20240307': ['claude 3 haiku pricing', 'claude haiku cost', 'claude cheapest model'],
-  'gemini-2.0-flash': ['gemini 2.0 flash pricing', 'gemini flash cost', 'google gemini pricing'],
-  'gemini-2.0-flash-lite': ['gemini flash lite pricing', 'gemini 2.0 flash lite cost', 'google ai pricing'],
-  'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing'],
-  'gemini-1.5-flash': ['gemini 1.5 flash pricing', 'gemini flash cost', 'google gemini flash pricing'],
-  'deepseek-v4-flash': ['deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token'],
-  'deepseek-v4-pro': ['deepseek v4 pro pricing', 'deepseek pro cost', 'deepseek api pricing'],
-  'llama-4-maverick': ['llama 4 maverick pricing', 'groq pricing', 'groq api cost', 'llama 4 groq pricing'],
+  'gpt-5.5': ['gpt-5.5 pricing', 'gpt-5.5 cost', 'gpt-5.5 api price', 'gpt-5.5 per million tokens', 'gpt-5.5 vs gpt-5.4 pricing', 'gpt-5.5 api cost comparison'],
+  'gpt-5.4': ['gpt-5.4 pricing', 'gpt-5.4 cost', 'gpt-5.4 api price', 'gpt-5.4 per million tokens', 'gpt-5.4 vs gpt-5.5 cost', 'gpt-5.4 token price'],
+  'gpt-5.4-mini': ['gpt-5.4 mini pricing', 'gpt-5.4 mini cost', 'gpt-5.4 mini api price', 'gpt-5.4 mini cheapest', 'gpt-5.4 mini vs gpt-4o-mini'],
+  'gpt-4o': ['gpt-4o pricing', 'gpt-4o cost', 'gpt-4o api price', 'gpt-4o per million tokens', 'gpt-4o vs gpt-4o-mini', 'gpt-4o token cost'],
+  'gpt-4o-mini': ['gpt-4o mini pricing', 'gpt-4o mini cost', 'gpt-4o mini api price', 'gpt-4o mini cheapest openai', 'gpt-4o mini vs deepseek cost'],
+  'o3': [
+    'o3 pricing', 'openai o3 pricing', 'openai o3 cost', 'o3 api price',
+    'openai reasoning model pricing', 'o3 vs o4-mini cost', 'openai o3 token price',
+    'o3 model pricing 2026', 'openai o3 api cost', 'o3 per million tokens',
+  ],
+  'o4-mini': ['o4-mini pricing', 'openai o4-mini cost', 'o4-mini api price', 'o4-mini reasoning pricing', 'o4-mini vs o3', 'o4-mini token cost'],
+  'claude-3-7-sonnet-20250219': [
+    'claude 3.7 sonnet pricing', 'claude 3.7 sonnet cost', 'anthropic claude pricing',
+    'claude sonnet api price', 'sonnet 3.7 pricing', 'claude 3.7 sonnet api cost',
+    'claude sonnet 3.7 price', 'anthropic sonnet pricing', 'claude extended thinking pricing',
+    'claude 3.7 sonnet per million tokens',
+  ],
+  'claude-3-5-haiku-20241022': ['claude 3.5 haiku pricing', 'claude haiku cost', 'claude cheap model pricing', 'claude 3.5 haiku api price', 'cheapest claude api'],
+  'claude-3-opus-20240229': ['claude 3 opus pricing', 'claude opus cost', 'claude expensive model pricing', 'claude opus api price', 'claude opus per million tokens'],
+  'claude-3-haiku-20240307': ['claude 3 haiku pricing', 'claude haiku cost', 'claude cheapest model', 'claude haiku api price', 'claude haiku per token'],
+  'gemini-2.0-flash': [
+    'gemini 2.0 flash pricing', 'gemini 2.0 flash price', 'gemini 2.0 flash api price',
+    'gemini 2 flash pricing', 'gemini flash cost', 'google gemini 2.0 pricing',
+    'gemini 2.0 flash api cost', 'gemini 2.0 flash cheapest', 'gemini flash 2.0 price',
+    'google gemini flash api pricing',
+  ],
+  'gemini-2.0-flash-lite': ['gemini flash lite pricing', 'gemini 2.0 flash lite cost', 'google ai pricing', 'gemini flash lite api', 'cheapest google llm'],
+  'gemini-1.5-pro': ['gemini 1.5 pro pricing', 'gemini pro cost', 'google gemini 1.5 pricing', 'gemini 1.5 pro api price', 'gemini pro vs flash', 'gemini pro 2m context pricing', 'google gemini pro api cost', 'gemini 1.5 pro per million tokens'],
+  'gemini-1.5-flash': [
+    'gemini 1.5 flash pricing', 'gemini 1.5 flash api pricing', 'google gemini 1.5 flash pricing',
+    'gemini flash cost', 'gemini flash api cost', 'gemini 1.5 flash api',
+    'gemini 1.5 flash per million tokens', 'gemini 1.5 flash price per token',
+    'gemini flash api price', 'gemini flash cheapest',
+  ],
+  'deepseek-v4-flash': [
+    'deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token',
+    'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek flash cheapest model',
+    'deepseek v4 flash vs gpt pricing', 'deepseek flash token price',
+    'deepseek api pricing 2026', 'deepseek v4 flash per million tokens',
+  ],
+  'deepseek-v4-pro': ['deepseek v4 pro pricing', 'deepseek pro cost', 'deepseek api pricing', 'deepseek v4 pro vs flash', 'deepseek pro api price', 'deepseek pro per million tokens'],
+  'llama-4-maverick': ['llama 4 maverick pricing', 'groq pricing', 'groq api cost', 'llama 4 groq pricing', 'llama 4 maverick api price', 'groq llama cost'],
+};
+
+// Per-model SEO overrides for richer titles and descriptions.
+// Use these when the auto-generated formula doesn't capture the model's
+// unique selling point well enough. Keyed by pricing.json model id.
+const SEO_OVERRIDES = {
+  'deepseek-v4-flash': {
+    title: 'DeepSeek V4 Flash Pricing (2026) — Cheapest LLM API at $0.14/1M Input',
+    description: 'DeepSeek V4 Flash costs $0.14/1M input and $0.28/1M output, while DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output. Compare both models: Flash is the cheapest LLM API in 2026, Pro offers premium reasoning. Cached input is just $0.0197/1M (86% discount). Full pricing breakdown, cost calculator, and comparison vs GPT-4o, Claude, and Gemini.',
+  },
+  'deepseek-v4-pro': {
+    title: 'DeepSeek V4 Pro Pricing (2026) — $0.435/1M Input, Premium Reasoning',
+    description: 'DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output with 1M context window. Compare DeepSeek V4 Pro vs Flash pricing, use the cost calculator, and see how it stacks up against GPT-5.5 and Claude.',
+  },
+  'claude-3-7-sonnet-20250219': {
+    title: 'Claude 3.7 Sonnet Pricing (2026) — $3/1M Input, Extended Thinking at $15/1M Output',
+    description: 'Claude 3.7 Sonnet costs $3/1M input and $15/1M output with a 200K context window. Cached input is $0.30/1M (90% discount). Features extended thinking for complex analysis and coding. Compare vs Claude Sonnet 4.6, GPT-4o, and DeepSeek pricing with our cost calculator.',
+  },
+  'gemini-1.5-pro': {
+    title: 'Gemini 1.5 Pro Pricing (2026) — 2M Context Window at $1.25/1M Input',
+    description: 'Gemini 1.5 Pro costs $1.25/1M input and $5/1M output with a 2 million token context window. Cached input is $0.125/1M (90% discount). Best for complex multimodal tasks, long document analysis, and code generation. Compare vs Gemini 1.5 Flash, GPT-4o, and Claude pricing with our cost calculator.',
+  },
+  'gemini-1.5-flash': {
+    title: 'Gemini 1.5 Flash API Pricing (2026) — $0.075/1M Input, 1M Context, 90% Cache Discount',
+    description: 'Gemini 1.5 Flash costs $0.075/1M input and $0.30/1M output with a 1 million token context window — 17x cheaper than Gemini 1.5 Pro for input. Cached input is just $0.0075/1M (90% discount). The cheapest and fastest Google Gemini model for multimodal tasks, repetitive operations, and high-throughput workloads. Compare Gemini 1.5 Flash vs Gemini 1.5 Pro, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+  },
+  'gemini-2.0-flash': {
+    title: 'Gemini 2.0 Flash Pricing (2026) — $0.10/1M Input, Google Fastest API',
+    description: 'Gemini 2.0 Flash costs $0.10/1M input and $0.40/1M output with a 1 million token context window. Cached input is $0.025/1M (75% discount). The latest Google Flash model with production-grade rate limits. Compare vs Gemini 1.5 Flash, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+  },
+  'o3': {
+    title: 'OpenAI o3 Pricing (2026) — $2/1M Input, Deep Reasoning Model for STEM',
+    description: 'OpenAI o3 costs $2/1M input and $8/1M output with a 200K context window. Cached input is $0.50/1M (75% discount). Deep reasoning model optimized for STEM problems, math, and complex analysis. Compare o3 vs o4-mini, GPT-5.5, and Claude pricing with our cost calculator.',
+  },
 };
 
 // ── Formatters ────────────────────────────────────────────────────────
@@ -216,6 +274,165 @@ ${modelEntries.join(',\n\n')},
 
 // ── Generate SEO pricing data ─────────────────────────────────────────
 
+function generateDescription(model) {
+  const override = SEO_OVERRIDES[model.id] || {};
+  if (override.description) return override.description;
+
+  const cachePrice = model.cachedInputPricePer1M;
+  const name = model.name;
+  const descParts = [
+    `${name} pricing:`,
+    `${fmtPrice(model.inputPricePer1M)}/1M input tokens,`,
+    `${fmtPrice(model.outputPricePer1M)}/1M output tokens,`,
+  ];
+  if (cachePrice !== undefined) {
+    descParts.push(`${fmtPrice(cachePrice)}/1M cached tokens.`);
+  } else {
+    descParts.push('no cached token discount.');
+  }
+
+  const suffixParts = [];
+  if (model.provider === 'OpenAI') suffixParts.push(model.id.includes('mini') ? 'Budget-friendly' : 'Compare costs for your workload');
+  if (model.provider === 'Anthropic') suffixParts.push(model.id.includes('haiku') ? 'Cheapest Claude' : 'Anthropic model cost analysis');
+  if (model.provider === 'Google') suffixParts.push('Google model cost breakdown');
+  if (model.provider === 'DeepSeek') suffixParts.push(model.id.includes('flash') ? 'One of the cheapest LLM APIs' : 'Premium DeepSeek model');
+  if (model.provider === 'Groq') suffixParts.push('Fastest inference with no cached token discount');
+
+  const suffix = suffixParts[0] ? ` ${suffixParts[0]}.` : '';
+  return descParts.join(' ') + suffix;
+}
+
+function generateExplanation(model, allModels) {
+  const name = model.name;
+  const provider = model.provider;
+  const bestFor = model.bestFor || 'general-purpose tasks';
+  const ctxK = (model.contextWindow / 1000).toFixed(0);
+  const ctxLabel = model.contextWindow >= 1_000_000 ? `${(model.contextWindow / 1_000_000).toFixed(0)}M` : `${ctxK}K`;
+  const cachePrice = model.cachedInputPricePer1M;
+
+  // Find a cheaper competitor from same provider or different provider
+  const cheaper = allModels
+    .filter(m => m.id !== model.id && m.inputPricePer1M < model.inputPricePer1M)
+    .sort((a, b) => b.inputPricePer1M - a.inputPricePer1M)[0];
+  const moreExpensive = allModels
+    .filter(m => m.id !== model.id && m.inputPricePer1M > model.inputPricePer1M)
+    .sort((a, b) => a.inputPricePer1M - b.inputPricePer1M)[0];
+
+  // Monthly cost example: 10K input, 2K output, 1000 calls/day
+  const dailyInput = 10000 * 1000; // tokens
+  const dailyOutput = 2000 * 1000;
+  const monthlyInput = dailyInput * 30;
+  const monthlyOutput = dailyOutput * 30;
+  const monthlyCost = (monthlyInput / 1_000_000) * model.inputPricePer1M + (monthlyOutput / 1_000_000) * model.outputPricePer1M;
+  const monthlyFormatted = monthlyCost < 1 ? `$${monthlyCost.toFixed(2)}` : `$${fmt(monthlyCost)}`;
+
+  const parts = [];
+
+  // Paragraph 1: What this model is and what it costs
+  parts.push(
+    `${name} is ${provider}'s ${model.inputPricePer1M <= 0.5 ? 'budget-friendly' : model.inputPricePer1M <= 3 ? 'mid-range' : 'premium'} model, best suited for ${bestFor.toLowerCase()}. ` +
+    `It costs ${fmtPrice(model.inputPricePer1M)} per 1M input tokens and ${fmtPrice(model.outputPricePer1M)} per 1M output tokens, with a ${ctxLabel} token context window.`
+  );
+
+  // Paragraph 2: Cost example
+  parts.push(
+    `At typical usage (10K input tokens, 2K output tokens per call, 1,000 calls per day), ` +
+    `${name} costs approximately ${monthlyFormatted} per month. ` +
+    (cachePrice !== undefined
+      ? `With prompt caching enabled at a ${Math.round((1 - cachePrice / model.inputPricePer1M) * 100)}% discount, cached input drops to ${fmtPrice(cachePrice)}/1M tokens — significant for applications with repeated system prompts.`
+      : `This model does not offer cached input pricing.`)
+  );
+
+  // Paragraph 3: Comparison context
+  let comparison = '';
+  if (cheaper) {
+    comparison += `For lower costs, ${cheaper.name} (${cheaper.provider}) offers input at ${fmtPrice(cheaper.inputPricePer1M)}/1M`;
+  }
+  if (moreExpensive) {
+    if (comparison) comparison += '. ';
+    comparison += `For higher capability, ${moreExpensive.name} (${moreExpensive.provider}) costs ${fmtPrice(moreExpensive.inputPricePer1M)}/1M input`;
+  }
+  if (comparison) {
+    parts.push(comparison + '.');
+  }
+
+  // Paragraph 4: Use case guidance
+  parts.push(
+    `${model.inputPricePer1M <= 0.5
+      ? `At this price point, ${name} is ideal for high-volume production workloads: classification, extraction, summarization, and chatbots where cost per query matters more than peak intelligence.`
+      : model.inputPricePer1M <= 3
+      ? `${name} sits in the sweet spot between cost and capability. Use it for production features that need reliable quality — coding assistance, content generation, data analysis, and multi-step reasoning — without paying premium model rates.`
+      : `${name} is designed for tasks where quality justifies the cost: complex reasoning, nuanced analysis, professional-grade writing, and challenging coding problems. For routine tasks, consider cheaper alternatives in the same provider lineup.`
+    }`
+  );
+
+  // Paragraph 5: Per-request cost breakdown
+  const costPer1kInput = (model.inputPricePer1M / 1000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+  const costPer1kOutput = (model.outputPricePer1M / 1000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+  parts.push(
+    `On a per-request basis, sending 1,000 input tokens to ${name} costs $${costPer1kInput}, and generating 1,000 output tokens costs $${costPer1kOutput}. ` +
+    `A typical chatbot exchange (500 tokens in, 300 tokens out) runs about $${((model.inputPricePer1M * 500 + model.outputPricePer1M * 300) / 1_000_000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '')} per message. ` +
+    `At scale, small per-request cost differences compound quickly — a model that costs 2x more per token costs 2x more at any volume.`
+  );
+
+  // Paragraph 6: Pricing transparency note
+  parts.push(
+    `All pricing shown here is sourced from ${provider}'s official pricing page and verified regularly. ` +
+    `LLM providers may change pricing without notice. Always confirm current rates on the provider's website before making purchasing decisions. ` +
+    `The cost calculator on this page lets you estimate monthly spending based on your actual token usage and call volume.`
+  );
+
+  return parts.join(' ');
+}
+
+function generateFaq(model) {
+  const name = model.name;
+  const cachePrice = model.cachedInputPricePer1M;
+  const ctxK = (model.contextWindow / 1000).toFixed(0);
+  const ctxLabel = model.contextWindow >= 1_000_000 ? `${(model.contextWindow / 1_000_000).toFixed(0)}M` : `${ctxK}K`;
+
+  const faq = [
+    {
+      q: `How much does ${name} cost per 1M tokens?`,
+      a: `${name} costs ${fmtPrice(model.inputPricePer1M)} per 1M input tokens and ${fmtPrice(model.outputPricePer1M)} per 1M output tokens.` +
+        (cachePrice !== undefined ? ` Cached input tokens are available at ${fmtPrice(cachePrice)} per 1M, a ${Math.round((1 - cachePrice / model.inputPricePer1M) * 100)}% discount.` : ''),
+    },
+    {
+      q: `Is ${name} cheap or expensive?`,
+      a: model.inputPricePer1M <= 0.5
+        ? `${name} is one of the more affordable LLM APIs at ${fmtPrice(model.inputPricePer1M)}/1M input tokens. It competes with other budget models for high-volume workloads.`
+        : model.inputPricePer1M <= 3
+        ? `${name} is mid-range at ${fmtPrice(model.inputPricePer1M)}/1M input tokens. It balances cost and capability for production use.`
+        : `${name} is a premium model at ${fmtPrice(model.inputPricePer1M)}/1M input tokens. Use it for tasks where quality justifies the cost.`,
+    },
+    {
+      q: `What is the context window of ${name}?`,
+      a: `${name} supports a context window of ${ctxLabel} tokens. This determines how much text you can send in a single API call — including system prompts, conversation history, and the actual query.`,
+    },
+  ];
+
+  if (cachePrice !== undefined) {
+    const savings = Math.round((1 - cachePrice / model.inputPricePer1M) * 100);
+    faq.push({
+      q: `Does ${name} support prompt caching?`,
+      a: `Yes. ${model.provider} offers cached input at ${fmtPrice(cachePrice)}/1M tokens — a ${savings}% discount over the base input price. This helps with repeated system prompts and few-shot examples.`,
+    });
+  }
+
+  faq.push({
+    q: `How to reduce ${name} API costs?`,
+    a: `Three strategies: (1) Enable prompt caching if your provider supports it — savings of up to 90% on repeated input. (2) Route simple queries to cheaper models. (3) Reduce output tokens with concise instructions.`,
+  });
+
+  const perReqCost = ((model.inputPricePer1M * 500 + model.outputPricePer1M * 300) / 1_000_000).toFixed(6).replace(/0+$/, '').replace(/\.$/, '');
+  faq.push({
+    q: `How much does one ${name} API call cost?`,
+    a: `A typical request with 500 input tokens and 300 output tokens costs approximately $${perReqCost}. The exact cost depends on your prompt length and desired response length. Use the cost calculator above to estimate for your specific usage pattern.`,
+  });
+
+  return faq;
+}
+
 function generateSeoPricing(models) {
   const seoPages = [];
 
@@ -223,40 +440,23 @@ function generateSeoPricing(models) {
     const slug = SEO_SLUG_MAP[model.id];
     if (!slug) continue; // model has no SEO page
 
+    const override = SEO_OVERRIDES[model.id] || {};
     const keywords = SEO_KEYWORDS[model.id] || [];
-    const cachePrice = model.cachedInputPricePer1M;
     const name = model.name;
     const h1Name = `${name} API Pricing`;
-    const title = `${name} API Pricing (2026) — Cost Per 1M Tokens`;
-
-    const descParts = [
-      `${name} pricing:`,
-      `${fmtPrice(model.inputPricePer1M)}/1M input tokens,`,
-      `${fmtPrice(model.outputPricePer1M)}/1M output tokens,`,
-    ];
-    if (cachePrice !== undefined) {
-      descParts.push(`${fmtPrice(cachePrice)}/1M cached tokens.`);
-    } else {
-      descParts.push('no cached token discount.');
-    }
-
-    // Add a human-readable suffix
-    const suffixParts = [];
-    if (model.provider === 'OpenAI') suffixParts.push(model.id.includes('mini') ? 'Budget-friendly' : 'Compare costs for your workload');
-    if (model.provider === 'Anthropic') suffixParts.push(model.id.includes('haiku') ? 'Cheapest Claude' : 'Anthropic model cost analysis');
-    if (model.provider === 'Google') suffixParts.push('Google model cost breakdown');
-    if (model.provider === 'DeepSeek') suffixParts.push(model.id.includes('flash') ? 'One of the cheapest LLM APIs' : 'Premium DeepSeek model');
-    if (model.provider === 'Groq') suffixParts.push('Fastest inference with no cached token discount');
-
-    const suffix = suffixParts[0] ? ` ${suffixParts[0]}.` : '';
-    const description = descParts.join(' ') + suffix;
+    const title = override.title || `${name} API Pricing (2026) — Cost Per 1M Tokens`;
+    const description = generateDescription(model);
+    const explanation = generateExplanation(model, models);
+    const faq = generateFaq(model);
 
     seoPages.push(`  {
     slug: '${slug}',
     modelId: '${model.id}',
     title: '${title}',
     h1: '${h1Name}',
-    description: '${description}',
+    description: '${escapeStr(description)}',
+    explanation: '${escapeStr(explanation)}',
+    faq: ${JSON.stringify(faq)},
     keywords: ${JSON.stringify(keywords)},
   }`);
   }
@@ -273,6 +473,8 @@ export interface PricingSeoPage {
   title: string
   h1: string
   description: string
+  explanation: string
+  faq: { q: string; a: string }[]
   keywords: string[]
 }
 
@@ -280,6 +482,10 @@ export const PRICING_SEO_PAGES: PricingSeoPage[] = [
 ${seoPages.join(',\n')},
 ]
 `;
+}
+
+function escapeStr(s) {
+  return s.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 }
 
 // ── Main ──────────────────────────────────────────────────────────────
