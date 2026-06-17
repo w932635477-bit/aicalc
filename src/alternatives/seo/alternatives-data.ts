@@ -50,6 +50,7 @@ export interface AlternativePage {
   explanation: string
   faq: { q: string; a: string }[]
   keywords: string[]
+  quickDecision?: { choose: string; reason: string }[]
 }
 
 const _RAW_PAGES: AlternativePage[] = [
@@ -153,6 +154,37 @@ const _RAW_PAGES: AlternativePage[] = [
       { q: 'Can I import Evernote notes into Joplin?', a: 'Yes. Joplin has a built-in Evernote importer that preserves notebooks, tags, and attachments.' },
     ],
     keywords: ['self-hosted evernote', 'evernote alternative open source', 'joplin vs evernote', 'self-hosted notes', 'self-hosted Evernote alternative', 'best open source Evernote alternative', 'free Evernote replacement'],
+  },
+
+  {
+    slug: 'logseq',
+    saasName: 'Logseq',
+    category: 'Note-Taking',
+    icon: '🔗',
+    alternatives: [
+      { name: 'Joplin', description: 'Full-featured Markdown note-taking with WebDAV/S3 sync, E2E encryption, and web clipper.', url: 'https://joplinapp.org', github: 'https://github.com/laurent22/joplin', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 22300:22300 joplin/server', features: ['Markdown', 'Web clipper', 'E2E encryption', 'Tags', 'Notebooks', 'Mobile apps'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'e2e_encryption', 'mobile_app', 'desktop_app', 'api_access'] },
+      { name: 'SiYuan', description: 'Block-level referencing knowledge base with graph view, SQL query, and self-hosted sync.', url: 'https://b3log.org/siyuan/', github: 'https://github.com/siyuan-note/siyuan', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 6806:6806 b3log/siyuan', features: ['Block reference', 'Graph view', 'SQL query', 'Template', 'PDF annotation', 'S3/WebDAV sync'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'wiki', 'desktop_app', 'mobile_app', 'api_access'] },
+      { name: 'Trilium Notes', description: 'Hierarchical note-taking with scripting, relation maps, and cloned subtrees.', url: 'https://github.com/zadam/trilium', github: 'https://github.com/zadam/trilium', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 8080:8080 zadam/trilium', features: ['Tree structure', 'Scripting', 'Relation maps', 'Book notes', 'Image compression'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'lightweight', 'wiki', 'desktop_app', 'raspberry_pi'] },
+      { name: 'Standard Notes', description: 'Privacy-focused notes with E2E encryption, self-hosted server, and extensions.', url: 'https://standardnotes.com', github: 'https://github.com/standardnotes/app', license: 'GPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3000:3000 standardnotes/server', features: ['E2E encryption', 'Passcode lock', 'Extensions', 'Tagging', 'Offline access', 'Self-hosted sync'], scenarioTags: ['solo_dev', 'intermediate', 'docker_ready', 'e2e_encryption', 'mobile_app', 'desktop_app'] },
+    ],
+    title: 'Best Self-Hosted Logseq Alternatives (2026) — Open Source Note-Taking & Knowledge Base Tools',
+    h1: 'Self-Hosted Logseq Alternatives — Open Source Note-Taking & Knowledge Base',
+    description: 'Compare the best self-hosted Logseq alternatives in 2026: Joplin, SiYuan, Trilium Notes, and Standard Notes. Block references, graph view, Docker deploy, E2E encryption, local-first sync. Free open source — no subscription.',
+    explanation: 'Logseq is a powerful outliner and knowledge graph tool, but it lacks a self-hosted web version and its sync server is not yet available. If you need web-based access, self-hosted sync, or E2E encryption, alternatives offer these features today. Joplin is the most mature with full sync server support. SiYuan is the closest Logseq alternative with block references and graph view. Trilium excels at hierarchical organization. Standard Notes prioritizes privacy with E2E encryption.',
+    faq: [
+      { q: 'What is the closest alternative to Logseq?', a: 'SiYuan is the closest match with block-level referencing, graph view, and Markdown support. It also has a self-hosted sync server, which Logseq lacks.' },
+      { q: 'Can I import Logseq data into alternatives?', a: 'Yes. Since Logseq stores notes as plain Markdown files, most alternatives (Joplin, SiYuan, Trilium) can import them directly. SiYuan also supports Org-mode files.' },
+      { q: 'Which alternative is best for a self-hosted web app?', a: 'Trilium Notes and Joplin Server both provide web-based access. SiYuan also has a Docker-based server mode for browser access.' },
+      { q: 'Is there a self-hosted web version of Logseq?', a: 'Logseq does not yet offer an official self-hosted web server. The closest self-hosted web alternatives with similar features are SiYuan (block references + graph view) and Trilium Notes (hierarchical notes with web UI).' },
+      { q: 'Logseq vs Joplin vs SiYuan — which is best for self-hosting?', a: 'SiYuan is the closest to Logseq with block references and graph view, plus built-in self-hosted sync. Joplin is more mature with better mobile apps and E2E encryption. Trilium offers a unique tree structure with built-in web access.' },
+    ],
+    keywords: ['logseq alternative', 'self-hosted logseq', 'logseq self hosted alternative', 'logseq alternative open source', 'joplin vs logseq', 'siyuan vs logseq', 'open source knowledge base', 'self-hosted note-taking', 'logseq web self hosted', 'logseq replacement open source', 'best logseq alternative 2026', 'logseq docker self hosted', 'self-hosted knowledge base tools', 'open source note-taking app self-hosted'],
+    quickDecision: [
+      { choose: 'SiYuan', reason: 'you want block references and graph view like Logseq with self-hosted sync' },
+      { choose: 'Joplin', reason: 'you need mobile apps, web clipper, and E2E encryption' },
+      { choose: 'Trilium Notes', reason: 'you prefer hierarchical tree structure over outliner' },
+      { choose: 'Standard Notes', reason: 'privacy is your top priority and you need guaranteed E2E encryption' },
+    ],
   },
 
   // === Communication ===
@@ -850,16 +882,18 @@ const _RAW_PAGES: AlternativePage[] = [
       { name: 'Padloc', description: 'Modern password manager with end-to-end encryption and a clean, minimal UI.', url: 'https://padloc.app', github: 'https://github.com/padloc/padloc', license: 'GPL-3.0', difficulty: 'Medium', docker: true, features: ['End-to-end encryption', 'Clean UI', 'Teams', 'Biometric unlock', 'Attachments'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'docker_ready', 'e2e_encryption', 'sharing', 'mobile_app', 'desktop_app'] },
       { name: 'Psono', description: 'Team password manager with enterprise features, API access, and auditing.', url: 'https://psono.com', github: 'https://github.com/psono/psono-server', license: 'Apache-2.0', difficulty: 'Medium', docker: true, features: ['Team sharing', 'API', 'Auditing', 'MFA', 'LDAP/AD', 'Emergency codes'], scenarioTags: ['small_team', 'enterprise', 'intermediate', 'docker_ready', 'ldap', 'mfa', 'api_access', 'sharing', 'audit_log'] },
     ],
-    title: 'Vaultwarden Self-Hosted Password Manager - Setup Guide & Comparison',
-    h1: 'Self-Hosted Password Manager: Vaultwarden & Alternatives',
-    description: 'Set up Vaultwarden self-hosted password manager. Bitwarden-compatible, lightweight (~10MB RAM). Compare with Padloc and Psono.',
-    explanation: 'Vaultwarden is a lightweight reimplementation of the Bitwarden server in Rust with 43K+ GitHub stars. It works with all official Bitwarden browser extensions, mobile apps, and CLI tools, but uses only ~10MB of RAM instead of the 2GB+ required by the official Bitwarden self-hosted server. This makes it perfect for a Raspberry Pi, home server, or $3/month VPS.',
+    title: 'Best Self-Hosted Vaultwarden Alternatives (2026) — Password Manager Comparison & Docker Setup',
+    h1: 'Self-Hosted Password Manager Alternatives — Vaultwarden, Padloc & Psono',
+    description: 'Compare 3 free self-hosted password managers: Vaultwarden (Bitwarden-compatible, ~10MB RAM), Padloc (E2E encryption), Psono (team features). Docker setup, security hardening guide. Updated 2026.',
+    explanation: 'Vaultwarden is a lightweight reimplementation of the Bitwarden server in Rust with 43K+ GitHub stars. It works with all official Bitwarden browser extensions, mobile apps, and CLI tools, but uses only ~10MB of RAM instead of the 2GB+ required by the official Bitwarden self-hosted server. This makes it perfect for a Raspberry Pi, home server, or $3/month VPS. Search interest grew 83% year-over-year in 2026 as Bitwarden subscription prices increased and users seek free self-hosted alternatives.',
     faq: [
-      { q: 'Is Vaultwarden compatible with Bitwarden apps?', a: 'Yes. Vaultwarden is fully compatible with all official Bitwarden clients: browser extensions (Chrome, Firefox, Safari, Edge), mobile apps (iOS, Android), desktop apps, and the CLI tool.' },
+      { q: 'Is Vaultwarden compatible with Bitwarden apps?', a: 'Yes. Vaultwarden is fully compatible with all official Bitwarden clients: browser extensions (Chrome, Firefox, Safari, Edge), mobile apps (iOS, Android), desktop apps, and the CLI tool. You keep using the same Bitwarden apps — just point them to your self-hosted server.' },
       { q: 'Vaultwarden vs official Bitwarden self-hosted?', a: 'Vaultwarden uses ~10MB RAM vs 2GB+ for the official server. It covers all personal and small team features. Use the official server only for enterprise features like SSO, SCIM, or organizational policies.' },
       { q: 'How do I secure Vaultwarden?', a: 'Always run Vaultwarden behind HTTPS (use a reverse proxy like Caddy or Nginx with Let\'s Encrypt). Enable admin panel with a secure token. Keep the Docker image updated.' },
+      { q: 'Can I run Vaultwarden on a Raspberry Pi?', a: 'Yes. Vaultwarden runs great on Raspberry Pi 3+ with just 50MB RAM. Use the Docker image: docker run -d -p 8080:80 vaultwarden/server. Pair with Caddy for automatic HTTPS.' },
+      { q: 'Vaultwarden vs Padloc vs Psono — which is best?', a: 'Vaultwarden is best for individuals and small teams who already use Bitwarden apps. Padloc offers the cleanest modern UI with end-to-end encryption. Psono is best for teams needing LDAP/AD integration, API access, and audit logging.' },
     ],
-    keywords: ['vaultwarden', 'self-hosted password manager', 'vaultwarden docker', 'vaultwarden setup', 'bitwarden self-hosted', 'vaultwarden vs bitwarden', 'lightweight password manager', 'vaultwarden guide'],
+    keywords: ['vaultwarden', 'self-hosted password manager', 'vaultwarden docker', 'vaultwarden setup', 'bitwarden self-hosted', 'vaultwarden vs bitwarden', 'lightweight password manager', 'vaultwarden guide', 'vaultwarden alternatives 2026', 'self-hosted bitwarden alternative', 'free password manager self-hosted', 'vaultwarden raspberry pi', 'best self-hosted password manager'],
   },
   // === Knowledge Management ===
   {
@@ -868,21 +902,36 @@ const _RAW_PAGES: AlternativePage[] = [
     category: 'Knowledge Management',
     icon: '📄',
     alternatives: [
-      { name: 'BookStack', description: 'Simple, self-hosted wiki with a book/chapter/page hierarchy. WYSIWYG editor, LDAP/SAML auth, MIT license, 10+ years of development.', url: 'https://www.bookstackapp.com', github: 'https://github.com/BookStackApp/BookStack', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 8080:80 solidnerd/bookstack', features: ['Book hierarchy', 'WYSIWYG editor', 'Markdown', 'LDAP/SAML', 'API', 'Multi-language', 'Permission system'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'wiki', 'collaboration', 'ldap', 'saml', 'api_access', 'rbac'] },
-      { name: 'Wiki.js', description: 'Modern wiki with multiple editors (WYSIWYG, Markdown, HTML), Git-backed storage, and enterprise auth (LDAP, OAuth, SAML).', url: 'https://js.wiki', github: 'https://github.com/requarks/wiki', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3000:3000 requarks/wiki', features: ['Multiple editors', 'Git sync', 'LDAP/OAuth', 'Full-text search', 'Comments', 'Localization'], scenarioTags: ['small_team', 'enterprise', 'intermediate', 'docker_ready', 'wiki', 'collaboration', 'search', 'ldap', 'oauth', 'api_access', 'scalable'] },
-      { name: 'Outline', description: 'Fast, polished knowledge base with real-time collaboration, Slack integration, and a clean Notion-like interface.', url: 'https://getoutline.com', github: 'https://github.com/outline/outline', license: 'BSL-1.1', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3000:3000 outlinewiki/outline', features: ['Real-time collaboration', 'Markdown', 'Slack integration', 'Collections', 'Full-text search', 'API', 'SSO/OIDC'], scenarioTags: ['small_team', 'intermediate', 'docker_ready', 'wiki', 'collaboration', 'search', 'sso', 'api_access'] },
+      { name: 'BookStack', description: 'Simple, self-hosted wiki with a book/chapter/page hierarchy. WYSIWYG editor, LDAP/SAML auth, MIT license, 10+ years of development. Runs on 256MB RAM — lightest option.', url: 'https://www.bookstackapp.com', github: 'https://github.com/BookStackApp/BookStack', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 8080:80 solidnerd/bookstack', features: ['Book hierarchy', 'WYSIWYG editor', 'Markdown', 'LDAP/SAML', 'API', 'Multi-language', 'Permission system'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'wiki', 'collaboration', 'ldap', 'saml', 'api_access', 'rbac'] },
+      { name: 'Wiki.js', description: 'Modern wiki with multiple editors (WYSIWYG, Markdown, HTML), Git-backed storage, and enterprise auth (LDAP, OAuth, SAML). Needs 1GB+ RAM with PostgreSQL.', url: 'https://js.wiki', github: 'https://github.com/requarks/wiki', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3000:3000 requarks/wiki', features: ['Multiple editors', 'Git sync', 'LDAP/OAuth', 'Full-text search', 'Comments', 'Localization'], scenarioTags: ['small_team', 'enterprise', 'intermediate', 'docker_ready', 'wiki', 'collaboration', 'search', 'ldap', 'oauth', 'api_access', 'scalable'] },
+      { name: 'Outline', description: 'Fast, polished knowledge base with real-time collaboration, Slack integration, and a clean Notion-like interface. Requires PostgreSQL + Redis (~1GB RAM total).', url: 'https://getoutline.com', github: 'https://github.com/outline/outline', license: 'BSL-1.1', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3000:3000 outlinewiki/outline', features: ['Real-time collaboration', 'Markdown', 'Slack integration', 'Collections', 'Full-text search', 'API', 'SSO/OIDC'], scenarioTags: ['small_team', 'intermediate', 'docker_ready', 'wiki', 'collaboration', 'search', 'sso', 'api_access'] },
+      { name: 'XWiki', description: 'Enterprise-grade wiki with structured data forms, scripting API, and 20+ years of active development. Used by NASA and SAP. Needs 2GB+ RAM with MySQL.', url: 'https://xwiki.org', github: 'https://github.com/xwiki/xwiki-platform', license: 'LGPL-2.1', difficulty: 'Hard', docker: true, dockerCommand: 'docker run -d -p 8080:8080 xwiki:lts-mysql-tomcat', features: ['Structured data', 'Scripting API', 'Extensions', 'LDAP/SAML', 'WYSIWYG', 'Versioning', 'REST API'], scenarioTags: ['enterprise', 'advanced_setup', 'docker_ready', 'wiki', 'collaboration', 'ldap', 'sso', 'api_access', 'scalable', 'audit_log'] },
+      { name: 'Affine', description: 'Open-source Notion+Miro hybrid with block-based docs, whiteboards, and local-first architecture. Works offline, syncs when ready. Self-hosted needs 2GB RAM.', url: 'https://affine.pro', github: 'https://github.com/toeverything/Affine', license: 'MIT', difficulty: 'Medium', docker: true, dockerCommand: 'docker run -d -p 3010:3010 ghcr.io/toeverything/affine-self-hosted:stable', features: ['Block editor', 'Whiteboard', 'Local-first', 'Markdown', 'Real-time collaboration', 'Edgeless mode', 'Self-hosted sync'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'docker_ready', 'wiki', 'collaboration', 'desktop_app', 'mobile_app'] },
     ],
-    title: '5 Best Docmost Alternatives in 2026 — Self-Hosted Wiki Tools Compared (Free & Open Source)',
-    h1: 'Best Docmost Alternatives for Self-Hosted Wikis',
-    description: 'Looking for a Docmost alternative? Compare the 3 best open-source self-hosted wikis — BookStack, Wiki.js, and Outline — with Docker commands, feature tables, and a migration guide. Find the right Docmost replacement for your team.',
-    explanation: 'Docmost is a rising open source wiki with a Notion-like block editor (search interest +200% in 2026). But it\'s a young project (launched 2024) with a smaller ecosystem and fewer integrations. BookStack offers a simpler book/chapter/page hierarchy with MIT licensing and 10+ years of development. Wiki.js adds Git-backed storage and enterprise auth. Outline provides the most polished Notion-like experience with real-time collaboration and Slack integration.',
+    title: 'Docmost Alternatives (2026): BookStack vs Wiki.js vs Outline Comparison',
+    h1: 'Docmost Alternatives — Interactive Comparison with Docker & RAM Specs',
+    description: 'Compare Docmost alternatives side-by-side: BookStack (256MB RAM), Wiki.js (Git sync), Outline (Slack), XWiki (enterprise), Affine (whiteboard). Docker one-liners, license comparison, and quick decision guide.',
+    explanation: 'Docmost is a rising open source wiki with a Notion-like block editor (3K+ GitHub stars, launched 2024). It offers real-time collaboration and a modern interface, but it\'s still a young project with fewer integrations and a smaller plugin ecosystem. Our interactive comparison below shows exactly how each alternative stacks up on RAM usage, Docker setup difficulty, license terms, and team features. BookStack (15K+ GitHub stars, MIT license, 256MB RAM) is the lightest option and easiest to deploy with a single Docker command. Wiki.js adds Git-backed storage and enterprise auth at 1GB RAM. Outline provides the most polished Notion-like experience with Slack integration. XWiki brings enterprise structured data and scripting (20+ years, used by NASA and SAP). Affine combines docs with Miro-style whiteboards in a local-first architecture. Last updated: June 2026.',
     faq: [
-      { q: 'What is the best Docmost alternative?', a: 'BookStack is the best Docmost alternative for most users — simpler book/chapter/page structure, MIT license (vs AGPL-3.0), 10+ years of development, and single Docker command deployment. Choose Wiki.js if you need Git-backed storage and enterprise auth. Choose Outline for the most polished Notion-like editing experience.' },
-      { q: 'Docmost vs BookStack — which should I choose?', a: 'Docmost has a modern block editor like Notion with real-time collaboration. BookStack uses a simpler book/chapter/page hierarchy with a WYSIWYG editor. BookStack advantages: MIT license (Docmost is AGPL-3.0), LDAP/SAML built-in, larger community, and 10+ years of maturity. Choose Docmost for Notion-style editing; choose BookStack for simplicity and long-term stability.' },
+      { q: 'What is the best Docmost alternative?', a: 'BookStack is the best Docmost alternative for most users — simpler book/chapter/page structure, MIT license (vs AGPL-3.0), 10+ years of development, and single Docker command deployment. Choose Wiki.js if you need Git-backed storage and enterprise auth. Choose Outline for the most polished Notion-like editing experience. Choose XWiki for enterprise structured data and scripting.' },
+      { q: 'Docmost vs BookStack — which should I choose?', a: 'Docmost has a modern block editor like Notion with real-time collaboration. BookStack uses a simpler book/chapter/page hierarchy with a WYSIWYG editor. BookStack advantages: MIT license (Docmost is AGPL-3.0), LDAP/SAML built-in, larger community (15K+ GitHub stars vs 3K+), and 10+ years of maturity. Choose Docmost for Notion-style editing; choose BookStack for simplicity and long-term stability.' },
       { q: 'Can I migrate from Docmost to BookStack or Wiki.js?', a: 'Docmost does not yet have a one-click export tool. You can export pages as Markdown and import them into BookStack or Wiki.js (both support Markdown import). For larger wikis, the process is manual but straightforward — copy sections page by page.' },
       { q: 'Is Docmost free for commercial use?', a: 'Yes, Docmost is free and open source under AGPL-3.0. However, AGPL requires you to release modifications if you offer Docmost as a hosted service. BookStack uses MIT (no such requirement). Wiki.js uses AGPL-3.0 like Docmost. Outline uses BSL-1.1 (free for non-production use).' },
+      { q: 'Is Docmost production-ready?', a: 'Docmost launched in 2024 and is actively developed with regular releases. It handles basic wiki needs well — pages, spaces, permissions, and real-time editing. However, it has fewer integrations than mature alternatives like BookStack (10+ years) or XWiki (20+ years). For production use, test your specific workflow first. BookStack and Wiki.js are safer choices for mission-critical documentation.' },
+      { q: 'Docmost vs Outline — which is better for team wikis?', a: 'Both offer Notion-like editing with real-time collaboration. Docmost is fully open source (AGPL-3.0) and self-hosted by default. Outline (BSL-1.1) requires PostgreSQL + Redis and has a hosted cloud option. Outline has deeper Slack integration and more polished UX; Docmost is simpler to deploy and fully free for commercial use. Choose Outline if your team lives in Slack; choose Docmost for a standalone self-hosted wiki.' },
+      { q: 'Docmost vs Affine — which should I pick?', a: 'Docmost is a dedicated wiki with pages, spaces, and permissions. Affine is a docs + whiteboard hybrid (Notion meets Miro). Pick Docmost if you need a traditional wiki structure with access control. Pick Affine if your team needs visual brainstorming (whiteboards, edgeless canvas) alongside text docs. Affine also has stronger offline support via local-first architecture.' },
+      { q: 'Which Docmost alternative is easiest to self-host?', a: 'BookStack is the easiest — one Docker command and you\'re running. It needs minimal resources (256MB RAM, works on a $5/month VPS). Wiki.js and Outline require PostgreSQL. XWiki needs MySQL + Java (2GB+ RAM). Affine needs 2GB+ RAM for its self-hosted sync server.' },
+      { q: 'Docmost vs Confluence — which open source wiki is better?', a: 'Docmost is a lightweight, self-hosted Confluence alternative with Notion-style block editing. Confluence (Atlassian) is cloud-only, costs $6-15/user/month, and locks data into Atlassian ecosystem. If you want to replace Confluence with a free, self-hosted option: BookStack is simplest, Wiki.js has the best auth integration, XWiki matches Confluence\'s structured data features. Docmost\'s advantage is its modern UI — closest to what your team already knows from Notion.' },
+      { q: 'How much RAM do Docmost alternatives need?', a: 'BookStack: 256MB (lightest). Docmost: ~512MB. Wiki.js: 1GB+ (needs PostgreSQL). Outline: 1GB+ (needs PostgreSQL + Redis). XWiki: 2GB+ (needs MySQL + Java). Affine: 2GB+ (self-hosted sync server). If you\'re running on a $5/month VPS (1GB RAM), BookStack or Docmost are your best options.' },
     ],
-    keywords: ['docmost alternative', 'docmost alternatives', 'docmost vs bookstack', 'docmost vs outline', 'best self-hosted wiki 2026', 'docmost open source alternative', 'self-hosted documentation tool', 'best docmost alternative', 'docmost competitors', 'docmost vs wiki.js', 'self-hosted wiki comparison'],
+    keywords: ['docmost alternative', 'docmost alternatives', 'docmost self hosted', 'docmost vs bookstack', 'docmost vs outline', 'docmost vs affine', 'docmost vs wiki.js', 'docmost vs xwiki', 'best self hosted wiki 2026', 'docmost open source alternative', 'self hosted documentation tool', 'best docmost replacement', 'docmost competitors', 'self hosted wiki comparison', 'docmost production ready', 'docmost migration', 'docmost docker alternative', 'free self hosted wiki', 'docmost license agpl', 'docmost vs confluence', 'docmost ram requirements'],
+    quickDecision: [
+      { choose: 'BookStack', reason: 'Simplicity and stability. MIT license, 10+ years mature, single Docker command, works on a $5/month VPS.' },
+      { choose: 'Wiki.js', reason: 'Git-backed storage and enterprise auth (LDAP, OAuth, SAML). Best when your docs need version control integration.' },
+      { choose: 'Outline', reason: 'Notion-like editing experience. Real-time collaboration with Slack integration. Best for teams already using Slack.' },
+      { choose: 'XWiki', reason: 'Enterprise structured data and scripting. 20+ years proven at NASA/SAP. Best for complex workflows with custom forms.' },
+      { choose: 'Affine', reason: 'Visual thinking + docs in one tool. Notion meets Miro with local-first offline support. Best if you need whiteboards alongside text.' },
+    ],
   },
   {
     slug: 'obsidian',
@@ -935,6 +984,87 @@ const _RAW_PAGES: AlternativePage[] = [
     ],
     keywords: ['free semrush alternative', 'semrush free alternative', 'free seo tools 2026', 'semrush replacement free', 'free keyword research tool', 'free site audit tool', 'ahrefs webmaster tools free', 'open source seo tool', 'free backlink checker'],
   },
+
+  // === Photo Management ===
+  {
+    slug: 'immich',
+    saasName: 'Google Photos (Immich)',
+    category: 'Photo Management',
+    icon: '📸',
+    alternatives: [
+      { name: 'Immich', description: 'Self-hosted Google Photos alternative with ML-powered face recognition, map view, and mobile apps. Actively developed with frequent releases.', url: 'https://immich.app', github: 'https://github.com/immich-app/immich', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, dockerCommand: 'docker compose up -d', features: ['Face recognition', 'Map view', 'Mobile apps', 'Timeline view', 'Album sharing', 'Search', 'Backup'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'docker_ready', 'mobile_app', 'sharing', 'backup', 'scalable', 'e2e_encryption'] },
+      { name: 'PhotoPrism', description: 'AI-powered photo management with automatic tagging, face detection, and world map. Works well on Raspberry Pi.', url: 'https://photoprism.app', github: 'https://github.com/photoprism/photoprism', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker compose up -d', features: ['AI tagging', 'Face detection', 'World map', 'Albums', 'Full-text search', 'Live Photos'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'raspberry_pi', 'search', 'backup'] },
+      { name: 'Nextcloud Memories', description: 'Photo management addon for Nextcloud with timeline view, face recognition, and album support. Best if you already use Nextcloud.', url: 'https://apps.nextcloud.com/apps/memories', github: 'https://github.com/pulsejet/memories', license: 'AGPL-3.0', difficulty: 'Medium', docker: false, features: ['Timeline view', 'Face recognition', 'Albums', 'Map view', 'Video support', 'Nextcloud integration'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'sharing', 'collaboration', 'mobile_app'] },
+      { name: 'Lychee', description: 'Lightweight photo management with a clean UI. Fast setup, great for simple photo sharing.', url: 'https://lycheeorg.github.io', github: 'https://github.com/LycheeOrg/Lychee', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 80:80 lycheeorg/lychee', features: ['Albums', 'Sharing', 'EXIF data', 'Tagging', 'Import from URL'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'lightweight', 'sharing'] },
+      { name: 'Ente Photos', description: 'End-to-end encrypted photo storage with mobile and desktop apps. Open source alternative to Google Photos with zero-knowledge privacy.', url: 'https://ente.io', github: 'https://github.com/ente-io/ente', license: 'AGPL-3.0', difficulty: 'Easy', docker: true, features: ['E2E encryption', 'Mobile apps', 'Desktop app', 'Face recognition', 'Albums', 'Map view'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'e2e_encryption', 'zero_knowledge', 'mobile_app', 'desktop_app', 'backup'] },
+      { name: 'Pigallery2', description: 'Fast directory-first photo gallery. Browses your existing folder structure with map, search, and face recognition.', url: 'https://bpatrik.github.io/pigallery2', github: 'https://github.com/bpatrik/pigallery2', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 80:80 bpatrik/pigallery2', features: ['Directory browsing', 'Map view', 'Face recognition', 'Search', 'Video playback', 'Sharing'], scenarioTags: ['solo_dev', 'beginner_friendly', 'docker_ready', 'lightweight', 'search'] },
+    ],
+    title: 'Self-Hosted Immich & Google Photos Alternative — 6 Open Source Tools (2026)',
+    h1: 'Self-Hosted Immich & Google Photos Alternatives',
+    description: 'Compare 6 self-hosted alternatives to Google Photos: Immich, PhotoPrism, Nextcloud Memories, Lychee, Ente Photos, and Pigallery2. Face recognition, map view, mobile apps.',
+    explanation: 'Google Photos charges $1.99/month for 100GB and scans your photos for advertising. Immich is the most popular self-hosted alternative with face recognition, map view, and native mobile apps — essentially a privacy-first Google Photos clone. PhotoPrism is lighter and runs on Raspberry Pi. For maximum privacy, Ente Photos offers end-to-end encryption.',
+    faq: [
+      { q: 'Is Immich a good Google Photos replacement?', a: 'Yes. Immich is the closest self-hosted alternative to Google Photos. It has mobile apps for iOS and Android, automatic backup, face recognition, map view, and album sharing. It is actively developed with frequent releases.' },
+      { q: 'Which self-hosted photo app is easiest to set up?', a: 'Lychee is the simplest — single Docker container, no database config. PhotoPrism is also beginner-friendly with its docker-compose setup. Immich requires more containers but offers the most features.' },
+      { q: 'Can I run a self-hosted photo app on Raspberry Pi?', a: 'PhotoPrism and Pigallery2 both run well on Raspberry Pi 4+. Immich requires more resources (recommended 4GB RAM minimum).' },
+      { q: 'Which option has the best mobile app?', a: 'Immich has the most polished mobile apps with automatic background upload. Ente Photos also has excellent mobile apps with E2E encryption.' },
+    ],
+    keywords: ['immich alternative self hosted', 'self-hosted google photos', 'immich self hosted', 'photoprism vs immich', 'self-hosted photo gallery', 'open source photo management', 'immich docker', 'google photos alternative open source'],
+  },
+
+  // === Monitoring ===
+  {
+    slug: 'uptime-kuma',
+    saasName: 'Uptime Robot / Pingdom',
+    category: 'Monitoring',
+    icon: '📡',
+    alternatives: [
+      { name: 'Uptime Kuma', description: 'Beautiful self-hosted uptime monitor with status pages, multi-protocol checks (HTTP, TCP, DNS, MQTT), and 90+ notification services.', url: 'https://uptime.kuma.pet', github: 'https://github.com/louislam/uptime-kuma', license: 'MIT', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 3001:3001 louislam/uptime-kuma', features: ['HTTP monitoring', 'TCP monitoring', 'DNS monitoring', 'Status pages', '90+ notifications', 'Certificate monitoring', 'Multi-language'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'monitoring', 'high_availability', 'web_only'] },
+      { name: 'Gatus', description: 'YAML-configured health dashboard with minimal resource usage. Ideal for developers who prefer config files over GUI.', url: 'https://github.com/TwiN/gatus', github: 'https://github.com/TwiN/gatus', license: 'Apache-2.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -p 8080:8080 twinproduction/gatus', features: ['YAML config', 'Health dashboard', 'REST/GraphQL/TCP checks', 'Alerting', 'Low resource usage', 'Custom conditions'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'monitoring', 'api_access', 'cli'] },
+      { name: 'Cabot', description: 'Self-hosted monitoring with Grafana integration, alerting rules, and simple Django-based web UI.', url: 'https://cabotapp.com', github: 'https://github.com/arachnys/cabot', license: 'MIT', difficulty: 'Medium', docker: true, features: ['HTTP monitoring', 'Graphite integration', 'Jenkins integration', 'Alerting', 'Django admin', 'Metrics'], scenarioTags: ['small_team', 'enterprise', 'intermediate', 'docker_ready', 'monitoring', 'cicd'] },
+      { name: 'Statping', description: 'Modern status page generator with built-in monitoring. Creates beautiful status pages automatically.', url: 'https://statping.com', github: 'https://github.com/statping/ng-statping', license: 'GPL-3.0', difficulty: 'Easy', docker: true, dockerCommand: 'docker run -d -p 8080:8080 statping-ng/statping-ng', features: ['Status pages', 'HTTP monitoring', 'TCP monitoring', 'Notification services', 'REST API', 'Themes'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'docker_ready', 'lightweight', 'monitoring', 'web_only', 'api_access'] },
+      { name: 'Checkmate', description: 'Open source self-hosted uptime monitor with real-time dashboards, incident management, and status pages.', url: 'https://github.com/bluewave-labs/checkmate', github: 'https://github.com/bluewave-labs/checkmate', license: 'AGPL-3.0', difficulty: 'Medium', docker: true, features: ['Real-time dashboard', 'Incident management', 'Status pages', 'HTTP/TCP/DNS checks', 'Notifications', 'Team management'], scenarioTags: ['small_team', 'enterprise', 'intermediate', 'docker_ready', 'monitoring', 'high_availability', 'rbac'] },
+    ],
+    title: 'Self-Hosted Uptime Kuma Alternative — 5 Open Source Uptime Monitors (2026)',
+    h1: 'Self-Hosted Uptime Monitor Alternatives',
+    description: 'Compare 5 self-hosted alternatives to Uptime Robot and Pingdom: Uptime Kuma, Gatus, Cabot, Statping, and Checkmate. Status pages, alerting, Docker-ready.',
+    explanation: 'Uptime Robot charges $7/month for 50 monitors and Pingdom starts at $15/month. Uptime Kuma is the most popular self-hosted alternative with a beautiful UI, 90+ notification integrations (Slack, Discord, Telegram, email, etc.), and built-in status pages. Gatus is lighter and config-driven, perfect for developers who prefer YAML over GUIs.',
+    faq: [
+      { q: 'Is Uptime Kuma better than Uptime Robot?', a: 'For self-hosting, yes. Uptime Kuma gives you unlimited monitors, beautiful status pages, 90+ notification services, and zero monthly cost. Uptime Robot limits free accounts to 50 monitors with 5-minute intervals.' },
+      { q: 'Which self-hosted uptime monitor uses the least resources?', a: 'Gatus is the lightest — it uses YAML config files instead of a database. Uptime Kuma needs SQLite but still runs on 256MB RAM. Both run well on a $5/month VPS.' },
+      { q: 'Can I get Slack/Discord alerts from self-hosted monitors?', a: 'Yes. Uptime Kuma supports 90+ notification services including Slack, Discord, Telegram, Email, Pushover, and webhook endpoints. Gatus and Statping also support multiple notification channels.' },
+      { q: 'Which has the best status page?', a: 'Uptime Kuma has the most polished built-in status pages with custom domains. Statping is also designed around status pages with theme support.' },
+    ],
+    keywords: ['uptime kuma alternative self hosted', 'self-hosted uptime monitor', 'uptime robot alternative', 'pingdom alternative open source', 'self-hosted status page', 'open source monitoring tool', 'gatus vs uptime kuma', 'free uptime monitoring'],
+  },
+
+  // === Desktop Publishing ===
+  {
+    slug: 'scribus',
+    saasName: 'Adobe InDesign',
+    category: 'Desktop Publishing',
+    icon: '📄',
+    alternatives: [
+      { name: 'Scribus', description: 'Professional open source desktop publishing with CMYK color, ICC color management, PDF export, and flexible layout tools.', url: 'https://www.scribus.net', github: 'https://github.com/scribusproject/scribus', license: 'GPL-2.0', difficulty: 'Medium', docker: false, features: ['CMYK color', 'ICC profiles', 'PDF export', 'Templates', 'Typography', 'Vector drawing', 'Scripting'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'desktop_app', 'beginner_friendly'] },
+      { name: 'Typst', description: 'Modern markup-based typesetting system. Fast, programmable, and web-friendly. The LaTeX alternative for 2026.', url: 'https://typst.app', github: 'https://github.com/typst/typst', license: 'Apache-2.0', difficulty: 'Medium', docker: false, features: ['Markup language', 'PDF export', 'Programmable', 'Fast compilation', 'Web editor', 'Package ecosystem'], scenarioTags: ['solo_dev', 'small_team', 'intermediate', 'web_only', 'api_access', 'cli'] },
+      { name: 'LibreOffice Draw', description: 'Free vector graphics editor bundled with LibreOffice. Handles flyers, brochures, and simple page layouts.', url: 'https://www.libreoffice.org', github: 'https://github.com/LibreOffice/core', license: 'MPL-2.0', difficulty: 'Easy', docker: false, features: ['Vector graphics', 'Page layout', 'PDF export', 'Templates', 'SVG import', 'Flowcharts'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'desktop_app'] },
+      { name: 'LaTeX (Beamer/Tufte)', description: 'Professional typesetting system for academic papers, books, and presentations. Steepest learning curve but highest output quality.', url: 'https://www.latex-project.org', github: 'https://github.com/latex3/latex2e', license: 'LPPL-1.3c', difficulty: 'Hard', docker: false, features: ['Math typesetting', 'Bibliography', 'Cross-references', 'Templates', 'PDF output', 'Presentation slides'], scenarioTags: ['intermediate', 'advanced_setup', 'cli', 'desktop_app'] },
+      { name: 'Canva (Free Tier)', description: 'Browser-based design tool with thousands of templates. Not open source but the free tier handles most simple layout needs.', url: 'https://www.canva.com', github: '', license: 'Freemium', difficulty: 'Easy', docker: false, features: ['Templates', 'Drag-and-drop', 'Brand kits', 'Team collaboration', 'Print-ready export', 'Social media sizes'], scenarioTags: ['solo_dev', 'small_team', 'beginner_friendly', 'web_only', 'sharing', 'collaboration', 'mobile_app'] },
+    ],
+    title: 'Best Free Adobe InDesign Alternatives (2026) — Scribus, Typst & Open Source Desktop Publishing',
+    h1: 'Free Alternatives to Adobe InDesign — Scribus, Typst & Open Source DTP',
+    description: 'Compare 5 free alternatives to Adobe InDesign ($23/mo): Scribus (CMYK, PDF/X), Typst (modern LaTeX), LibreOffice Draw, LaTeX, Canva. Microsoft Publisher retires Oct 2026 — free migration options included.',
+    explanation: 'Adobe InDesign costs $22.99/month and requires Creative Cloud. Scribus is the leading open source desktop publisher with CMYK support, ICC color management, and professional PDF/X export — the go-to free tool for print-ready layouts. Typst is a modern, fast alternative to LaTeX for technical documents. With Microsoft Publisher retiring in October 2026, free alternatives like Scribus and Canva are seeing a surge in adoption. For quick designs, Canva\'s free tier handles most non-professional layout needs at zero cost.',
+    faq: [
+      { q: 'Is Scribus a good InDesign replacement?', a: 'For most users, yes. Scribus handles CMYK color, ICC profiles, PDF/X export, and professional typography. It lacks some advanced InDesign features like GREP styles and data merge, but covers 80% of desktop publishing needs at zero cost.' },
+      { q: 'What is Typst and how does it compare to LaTeX?', a: 'Typst is a modern markup-based typesetting system that compiles in milliseconds instead of seconds. It has a cleaner syntax than LaTeX and a growing package ecosystem. Best for technical documents, papers, and reports.' },
+      { q: 'Can I use these for commercial print projects?', a: 'Yes. Scribus produces press-ready PDF/X files accepted by commercial printers. Typst and LaTeX also generate print-quality PDFs. Always verify with your print shop first.' },
+      { q: 'Which is easiest for beginners?', a: 'Canva is the easiest — browser-based with thousands of templates. LibreOffice Draw is the easiest desktop app. Scribus has a learning curve but there are many tutorials available.' },
+      { q: 'Scribus vs Canva — which should I use?', a: 'Scribus is best for print-ready projects (CMYK, PDF/X, commercial printing). Canva is best for quick digital designs, social media graphics, and collaboration. Use Scribus for brochures, magazines, and booklets; use Canva for social posts, presentations, and simple flyers.' },
+      { q: 'What replaces Microsoft Publisher after it retires in 2026?', a: 'Scribus is the closest free, open-source replacement with professional layout tools. For simpler needs, Canva\'s free tier or LibreOffice Draw work well. Typst is ideal for technical documents. All five tools listed above are free and work as Publisher alternatives.' },
+    ],
+    keywords: ['scribus alternative', 'adobe indesign alternative free', 'open source indesign', 'scribus vs indesign', 'free page layout tool', 'typst vs latex', 'free desktop publishing software', 'microsoft publisher alternative 2026', 'scribus vs canva', 'free desktop publishing open source', 'best free indesign alternative', 'publisher replacement free'],
+  },
 ]
 
 function mergeGitHubStats(pages: AlternativePage[]): AlternativePage[] {
@@ -985,4 +1115,7 @@ export const CATEGORIES = [
   { name: 'File Sync', icon: '🔄', tools: ['syncthing'], applicationCategory: 'UtilitiesApplication' },
   { name: 'Knowledge Management', icon: '📄', tools: ['docmost', 'obsidian'], applicationCategory: 'ProductivityApplication' },
   { name: 'SEO Tools', icon: '🔍', tools: ['semrush'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Photo Management', icon: '📸', tools: ['immich'], applicationCategory: 'MultimediaApplication' },
+  { name: 'Uptime Monitoring', icon: '📡', tools: ['uptime-kuma'], applicationCategory: 'DeveloperApplication' },
+  { name: 'Desktop Publishing', icon: '📄', tools: ['scribus'], applicationCategory: 'DesignApplication' },
 ]

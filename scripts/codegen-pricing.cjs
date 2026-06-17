@@ -109,6 +109,8 @@ const SEO_SLUG_MAP = {
   'deepseek-v4-flash': 'deepseek-v4-flash-pricing',
   'deepseek-v4-pro': 'deepseek-v4-pro-pricing',
   'llama-4-maverick': 'llama-4-maverick-pricing',
+  'gemini-2-5-flash': 'gemini-2-5-flash-pricing',
+  'gemini-2-5-flash-lite': 'gemini-2-5-flash-lite-pricing',
 };
 
 const SEO_KEYWORDS = {
@@ -147,13 +149,21 @@ const SEO_KEYWORDS = {
     'gemini flash api price', 'gemini flash cheapest',
   ],
   'deepseek-v4-flash': [
-    'deepseek v4 flash pricing', 'deepseek pricing', 'deepseek cost per token',
-    'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek flash cheapest model',
-    'deepseek v4 flash vs gpt pricing', 'deepseek flash token price',
+    'deepseek v4 flash pricing', 'deepseek api pricing', 'deepseek pricing', 'deepseek cost per token',
+    'deepseek flash api cost', 'cheapest llm api 2026', 'deepseek v4 flash vs v4 pro',
+    'deepseek flash cheapest model', 'deepseek v4 flash vs gpt pricing', 'deepseek flash token price',
     'deepseek api pricing 2026', 'deepseek v4 flash per million tokens',
+    'deepseek api cost calculator', 'deepseek v4 flash vs deepseek v4 pro pricing',
   ],
   'deepseek-v4-pro': ['deepseek v4 pro pricing', 'deepseek pro cost', 'deepseek api pricing', 'deepseek v4 pro vs flash', 'deepseek pro api price', 'deepseek pro per million tokens'],
   'llama-4-maverick': ['llama 4 maverick pricing', 'groq pricing', 'groq api cost', 'llama 4 groq pricing', 'llama 4 maverick api price', 'groq llama cost'],
+  'gemini-2-5-flash': [
+    'gemini 2.5 flash pricing', 'gemini 2.5 flash cost', 'gemini 2.5 flash api price',
+    'google gemini 2.5 pricing', 'gemini 2.5 flash per million tokens',
+    'gemini 2.5 flash api cost', 'gemini 2.5 flash token price',
+    'gemini 2.5 pricing per token', 'gemini 2.5 pro pricing',
+  ],
+  'gemini-2-5-flash-lite': ['gemini 2.5 flash lite pricing', 'gemini 2.5 flash lite cost', 'cheapest gemini api', 'gemini flash lite api price', 'google ai cheapest model'],
 };
 
 // Per-model SEO overrides for richer titles and descriptions.
@@ -161,32 +171,40 @@ const SEO_KEYWORDS = {
 // unique selling point well enough. Keyed by pricing.json model id.
 const SEO_OVERRIDES = {
   'deepseek-v4-flash': {
-    title: 'DeepSeek V4 Flash Pricing (2026) — Cheapest LLM API at $0.14/1M Input',
-    description: 'DeepSeek V4 Flash costs $0.14/1M input and $0.28/1M output, while DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output. Compare both models: Flash is the cheapest LLM API in 2026, Pro offers premium reasoning. Cached input is just $0.0197/1M (86% discount). Full pricing breakdown, cost calculator, and comparison vs GPT-4o, Claude, and Gemini.',
+    title: 'DeepSeek V4 Flash API Pricing 2026 — $0.14/1M, Best Value LLM',
+    description: 'DeepSeek V4 Flash: $0.14/1M input, $0.28/1M output — best quality-to-price ratio in 2026. 86% cache discount. Cost calculator: compare monthly spend vs GPT-4o, Claude, Gemini.',
   },
   'deepseek-v4-pro': {
-    title: 'DeepSeek V4 Pro Pricing (2026) — $0.435/1M Input, Premium Reasoning',
-    description: 'DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output with 1M context window. Compare DeepSeek V4 Pro vs Flash pricing, use the cost calculator, and see how it stacks up against GPT-5.5 and Claude.',
+    title: 'DeepSeek V4 Pro API Pricing 2026 — $0.435/1M, Premium Reasoning',
+    description: 'DeepSeek V4 Pro costs $0.435/1M input and $0.87/1M output with 1M context. Compare vs V4 Flash, GPT-5.5, Claude with monthly cost calculator.',
   },
   'claude-3-7-sonnet-20250219': {
-    title: 'Claude 3.7 Sonnet Pricing (2026) — $3/1M Input, Extended Thinking at $15/1M Output',
-    description: 'Claude 3.7 Sonnet costs $3/1M input and $15/1M output with a 200K context window. Cached input is $0.30/1M (90% discount). Features extended thinking for complex analysis and coding. Compare vs Claude Sonnet 4.6, GPT-4o, and DeepSeek pricing with our cost calculator.',
+    title: 'Claude 3.7 Sonnet API Pricing 2026 — $3/1M Input, Cost Calculator',
+    description: 'Claude 3.7 Sonnet: $3/1M input, $15/1M output, cached $0.30/1M (90% off). Extended thinking model. Compare monthly cost vs Claude Sonnet 4.6, GPT-5.5, DeepSeek.',
   },
   'gemini-1.5-pro': {
-    title: 'Gemini 1.5 Pro Pricing (2026) — 2M Context Window at $1.25/1M Input',
-    description: 'Gemini 1.5 Pro costs $1.25/1M input and $5/1M output with a 2 million token context window. Cached input is $0.125/1M (90% discount). Best for complex multimodal tasks, long document analysis, and code generation. Compare vs Gemini 1.5 Flash, GPT-4o, and Claude pricing with our cost calculator.',
+    title: 'Gemini 1.5 Pro API Pricing 2026 — $1.25/1M Input, 2M Context',
+    description: 'Gemini 1.5 Pro: $1.25/1M input, $5/1M output, 2M token context. Cached input only $0.125/1M. Free cost calculator — estimate monthly spending vs GPT-4o and Claude.',
   },
   'gemini-1.5-flash': {
-    title: 'Gemini 1.5 Flash API Pricing (2026) — $0.075/1M Input, 1M Context, 90% Cache Discount',
-    description: 'Gemini 1.5 Flash costs $0.075/1M input and $0.30/1M output with a 1 million token context window — 17x cheaper than Gemini 1.5 Pro for input. Cached input is just $0.0075/1M (90% discount). The cheapest and fastest Google Gemini model for multimodal tasks, repetitive operations, and high-throughput workloads. Compare Gemini 1.5 Flash vs Gemini 1.5 Pro, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+    title: 'Gemini 1.5 Flash API Pricing 2026 — $0.075/1M, Cheapest Google Model',
+    description: 'Gemini 1.5 Flash: $0.075/1M input, $0.30/1M output, 1M context. Cached just $0.0075/1M. 17x cheaper than Gemini Pro. Compare vs DeepSeek, GPT-4o Mini with cost calculator.',
   },
   'gemini-2.0-flash': {
-    title: 'Gemini 2.0 Flash Pricing (2026) — $0.10/1M Input, Google Fastest API',
-    description: 'Gemini 2.0 Flash costs $0.10/1M input and $0.40/1M output with a 1 million token context window. Cached input is $0.025/1M (75% discount). The latest Google Flash model with production-grade rate limits. Compare vs Gemini 1.5 Flash, GPT-4o, Claude, and DeepSeek pricing with our cost calculator.',
+    title: 'Gemini 2.0 Flash API Pricing 2026 — $0.10/1M, Cheapest Quality Model',
+    description: 'Gemini 2.0 Flash: $0.10/1M input, $0.40/1M output, 1M context. Cached $0.025/1M. Google best-value model — cheaper than GPT-4o Mini and DeepSeek V4. Cost calculator included.',
   },
   'o3': {
-    title: 'OpenAI o3 Pricing (2026) — $2/1M Input, Deep Reasoning Model for STEM',
-    description: 'OpenAI o3 costs $2/1M input and $8/1M output with a 200K context window. Cached input is $0.50/1M (75% discount). Deep reasoning model optimized for STEM problems, math, and complex analysis. Compare o3 vs o4-mini, GPT-5.5, and Claude pricing with our cost calculator.',
+    title: 'OpenAI o3 API Pricing 2026 — $2/1M Input, Reasoning Model Cost Calculator',
+    description: 'OpenAI o3: $2/1M input, $8/1M output, cached $0.50/1M. Deep reasoning for STEM and code. Monthly cost calculator — compare vs GPT-5.5, Claude, and o4-mini.',
+  },
+  'gemini-2-5-flash': {
+    title: 'Gemini 2.5 Flash API Pricing 2026 — $0.30/1M, Improved Reasoning',
+    description: 'Gemini 2.5 Flash: $0.30/1M input, $2.50/1M output, 1M context. Newest Google Flash with better reasoning. Compare vs Gemini 2.0 Flash and GPT-4o with cost calculator.',
+  },
+  'gemini-2-5-flash-lite': {
+    title: 'Gemini 2.5 Flash-Lite API Pricing 2026 — $0.10/1M, Budget AI',
+    description: 'Gemini 2.5 Flash-Lite: $0.10/1M input, $0.40/1M output, 1M context. Cheapest Gemini 2.5 model. Compare vs DeepSeek V4 Flash and GPT-4o Mini with cost calculator.',
   },
 };
 

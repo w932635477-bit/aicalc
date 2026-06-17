@@ -18,6 +18,8 @@ export interface CompareProduct {
   difficulty: 'Easy' | 'Medium' | 'Hard'
 }
 
+export type CompareCategory = 'Notes & Knowledge' | 'Communication' | 'Media' | 'Storage & Files' | 'Security & Privacy' | 'DevOps & Infrastructure' | 'Productivity' | 'Smart Home'
+
 export interface ComparePage {
   slug: string
   productA: CompareProduct
@@ -35,6 +37,7 @@ export interface ComparePage {
   winnerReason: string
   faq: { q: string; a: string }[]
   keywords: string[]
+  category: CompareCategory
 }
 
 export const COMPARE_PAGES: ComparePage[] = [
@@ -81,6 +84,7 @@ export const COMPARE_PAGES: ComparePage[] = [
       { q: 'Can I migrate from Notion to Obsidian?', a: 'Yes. Obsidian has an official Notion importer that converts your Notion pages to markdown files.' },
     ],
     keywords: ['obsidian vs notion', 'notion vs obsidian', 'obsidian compared to notion', 'best note taking app 2026', 'obsidian review', 'notion alternative'],
+    category: 'Notes & Knowledge',
   },
   {
     slug: 'notion-vs-obsidian',
@@ -123,6 +127,7 @@ export const COMPARE_PAGES: ComparePage[] = [
       { q: 'Can I self-host either tool?', a: 'Neither is open source. Obsidian stores data locally as markdown files you fully control. For a self-hosted alternative to both, try Outline or AppFlowy.' },
     ],
     keywords: ['notion vs obsidian', 'obsidian vs notion', 'notion comparison', 'best note app for teams', 'notion for teams', 'obsidian for personal use'],
+    category: 'Notes & Knowledge',
   },
   {
     slug: 'nextcloud-vs-owncloud',
@@ -191,10 +196,10 @@ volumes:
   db_data:`,
       pricing: 'Free (self-hosted) / Enterprise from €72/user', difficulty: 'Medium',
     },
-    title: 'Nextcloud vs ownCloud — Best Self-Hosted Cloud Storage in 2026',
-    h1: 'Nextcloud vs ownCloud: Self-Hosted Cloud Comparison',
-    description: 'Nextcloud vs ownCloud head-to-head. Features, performance, security, docker deployment, and which self-hosted cloud solution is right for you.',
-    summary: 'Nextcloud has become the dominant self-hosted cloud platform with more features, active development, and a larger community. ownCloud focuses on enterprise with a more stable, conservative release cycle.',
+    title: 'Nextcloud vs ownCloud (2026) — Self-Hosted Cloud Comparison with Docker Setup',
+    h1: 'Nextcloud vs ownCloud: Which Self-Hosted Cloud Is Right for You?',
+    description: 'Nextcloud vs ownCloud — features, Docker deployment, performance, security, and pricing compared. Nextcloud offers 200+ apps, video calls, and mail. ownCloud is lighter and more enterprise-focused. Free self-hosted alternatives to Google Drive and Dropbox.',
+    summary: 'Nextcloud has become the dominant self-hosted cloud platform with more features, active development, and a larger community. ownCloud focuses on enterprise with a more stable, conservative release cycle. Both are free, open-source, and run well in Docker.',
     features: [
       { name: 'File Sync', a: true, b: true },
       { name: 'Calendar & Contacts', a: true, b: true },
@@ -204,22 +209,31 @@ volumes:
       { name: 'App Store', a: '200+ apps', b: '100+ apps' },
       { name: 'Talk/Video Calls', a: true, b: false },
       { name: 'Mail Integration', a: true, b: false },
+      { name: 'Maps / GPS Tracking', a: true, b: false },
+      { name: 'Full Text Search', a: true, b: 'Elasticsearch' },
       { name: 'Docker Support', a: true, b: true },
-      { name: 'Community Size', a: 'Larger', b: 'Smaller' },
+      { name: 'LDAP / Active Directory', a: true, b: true },
+      { name: 'GDPR Compliance Tools', a: true, b: 'Enterprise only' },
+      { name: 'Community Size (GitHub stars)', a: '12K+', b: '8K+' },
     ],
-    prosA: ['More features including Talk (video calls), Mail, and Maps', 'Larger and more active community with 200+ apps', 'Better mobile apps', 'Stronger focus on privacy and GDPR compliance', 'Regular security audits and bug bounty program'],
-    consA: ['Can be resource-heavy on smaller servers', 'Frequent updates can break third-party apps', 'More complex setup with all features enabled', 'UI can feel cluttered with many apps installed'],
-    prosB: ['Cleaner, more focused interface', 'Better enterprise support options', 'More conservative release cycle means more stability', 'Good file sync performance', 'Easier to set up for basic file sharing'],
-    consB: ['Fewer features and integrations', 'Smaller community and fewer third-party apps', 'Enterprise pricing is higher', 'Less frequent updates and innovation'],
+    prosA: ['More features including Talk (video calls), Mail, Maps, and full-text search', 'Larger and more active community with 200+ community apps', 'Better mobile apps for iOS and Android', 'Stronger focus on privacy with built-in GDPR compliance tools', 'Regular security audits and bug bounty program', 'Free for all features — no paywalled functionality'],
+    consA: ['Can be resource-heavy on smaller servers (2GB+ RAM recommended)', 'Frequent updates can break third-party apps', 'More complex setup with all features enabled', 'UI can feel cluttered with many apps installed'],
+    prosB: ['Cleaner, more focused interface', 'Better enterprise support SLA options', 'More conservative release cycle means more stability', 'Good file sync performance with lower resource usage', 'Easier to set up for basic file sharing', 'Infinite Scale (ownCloud Infinite Scale) offers modern architecture'],
+    consB: ['Fewer features and integrations', 'Smaller community and fewer third-party apps', 'Enterprise pricing is higher (€72/user vs Nextcloud €36/user)', 'Less frequent updates and innovation', 'No built-in video calls or mail integration'],
     winner: 'a',
-    winnerReason: 'Nextcloud is the better choice for most users. It has more features, a larger community, and is free with all capabilities. ownCloud is worth considering only if you need enterprise support contracts.',
+    winnerReason: 'Nextcloud is the better choice for most users — more features, larger community, and everything is free. ownCloud is worth considering only if you need enterprise support contracts or prefer a lighter, more conservative platform.',
     faq: [
-      { q: 'Why did Nextcloud fork from ownCloud?', a: 'In 2016, the original ownCloud founder left and created Nextcloud with a community-focused approach. The split was over governance and the direction of the project.' },
-      { q: 'Is Nextcloud harder to set up than ownCloud?', a: 'For basic file sharing, they are similar. Nextcloud has more options which add complexity, but Docker makes both straightforward to deploy.' },
-      { q: 'Can I migrate from ownCloud to Nextcloud?', a: 'Yes. Since they share the same heritage, migration is well-documented. Nextcloud provides migration tools.' },
-      { q: 'Which uses less resources?', a: 'ownCloud generally uses less RAM and CPU for basic file sharing. Nextcloud uses more resources but provides more features in return.' },
+      { q: 'Why did Nextcloud fork from ownCloud?', a: 'In 2016, the original ownCloud founder Frank Karlitschek left and created Nextcloud with a community-focused approach. The split was over governance, open-source commitment, and the direction of the project. Both projects share the same code heritage but have diverged significantly since.' },
+      { q: 'Is Nextcloud harder to set up than ownCloud?', a: 'For basic file sharing, they are similar. Nextcloud has more options which add complexity, but Docker makes both straightforward to deploy in under 10 minutes. Both offer official Docker images.' },
+      { q: 'Can I migrate from ownCloud to Nextcloud?', a: 'Yes. Since they share the same heritage, migration is well-documented. Nextcloud provides built-in migration tools that handle users, files, and settings. Most migrations complete in under an hour.' },
+      { q: 'Which uses less resources — Nextcloud or ownCloud?', a: 'ownCloud generally uses less RAM and CPU for basic file sharing (works on 1GB RAM). Nextcloud recommends 2GB+ RAM for a full deployment with all apps. For simple file sync on a Raspberry Pi, ownCloud is lighter.' },
+      { q: 'Is Nextcloud free? Is ownCloud free?', a: 'Both are free and open-source under AGPL-3.0. You can self-host either without paying. Nextcloud offers all features for free. ownCloud reserves some enterprise features (like GDPR compliance tools) for paid plans.' },
+      { q: 'Which is better for a home server or homelab?', a: 'Nextcloud is the better home server choice — more features, better mobile apps, and a larger community for support. ownCloud is simpler if you only need basic file sync and want lower resource usage.' },
+      { q: 'Does Nextcloud or ownCloud work on Raspberry Pi?', a: 'Both can run on a Raspberry Pi 4 with 4GB+ RAM. ownCloud runs better on lower-spec hardware. For a Pi with 2GB RAM, consider ownCloud or use Nextcloud with fewer apps enabled.' },
+      { q: 'How do Nextcloud and ownCloud compare to Google Drive and Dropbox?', a: 'Both offer similar file sync and sharing features. The main advantage is data sovereignty — your files stay on your server, not in Google or Dropbox data centers. Nextcloud adds collaboration features (calendar, video calls, office editing) that make it closer to Google Workspace than just file storage.' },
     ],
-    keywords: ['nextcloud vs owncloud', 'owncloud vs nextcloud', 'self hosted cloud comparison', 'best self hosted cloud storage', 'nextcloud alternative'],
+    keywords: ['nextcloud vs owncloud', 'owncloud vs nextcloud', 'self hosted cloud comparison', 'best self hosted cloud storage', 'nextcloud alternative', 'owncloud alternative', 'self hosted google drive', 'self hosted dropbox alternative', 'nextcloud docker setup', 'owncloud docker setup', 'free cloud storage self hosted 2026', 'nextcloud vs owncloud performance'],
+    category: 'Storage & Files',
   },
   {
     slug: 'joplin-vs-obsidian',
@@ -264,6 +278,7 @@ volumes:
       { q: 'Can I switch from Joplin to Obsidian?', a: 'Yes. Both use markdown files. You can copy Joplin notes to an Obsidian vault, though you may need to adjust some formatting.' },
     ],
     keywords: ['joplin vs obsidian', 'obsidian vs joplin', 'open source note taking', 'joplin review', 'joplin self hosted', 'best open source notes app'],
+    category: 'Notes & Knowledge',
   },
   {
     slug: 'vaultwarden-vs-bitwarden',
@@ -331,6 +346,7 @@ volumes:
       { q: 'Does Vaultwarden support organizations?', a: 'Yes. Vaultwarden supports organizations for sharing vaults between users, matching most Bitwarden organization features.' },
     ],
     keywords: ['vaultwarden vs bitwarden', 'bitwarden vs vaultwarden', 'self hosted password manager', 'vaultwarden review', 'bitwarden self hosted', 'best self hosted password manager'],
+    category: 'Security & Privacy',
   },
   {
     slug: 'immich-vs-google-photos',
@@ -405,6 +421,7 @@ volumes:
       { q: 'Does Immich work on mobile?', a: 'Yes. Immich has official iOS and Android apps with auto-upload, just like Google Photos.' },
     ],
     keywords: ['immich vs google photos', 'google photos alternative', 'self hosted photo management', 'immich review', 'best self hosted photo gallery'],
+    category: 'Media',
   },
   {
     slug: 'gitea-vs-github',
@@ -462,6 +479,7 @@ volumes:
       { q: 'Can I use Gitea for a team?', a: 'Yes. Gitea supports organizations, teams, permissions, and code review. It works well for small to medium teams.' },
     ],
     keywords: ['gitea vs github', 'github vs gitea', 'self hosted git', 'gitea review', 'self hosted github alternative', 'best self hosted git server'],
+    category: 'DevOps & Infrastructure',
   },
   {
     slug: 'jellyfin-vs-plex',
@@ -520,6 +538,7 @@ volumes:
       { q: 'Does Jellyfin work offline?', a: 'Jellyfin itself needs a server, but mobile apps support downloading content for offline playback.' },
     ],
     keywords: ['jellyfin vs plex', 'plex vs jellyfin', 'self hosted media server', 'best media server 2026', 'jellyfin review', 'plex alternative'],
+    category: 'Media',
   },
   {
     slug: 'wordpress-vs-ghost',
@@ -612,6 +631,7 @@ volumes:
       { q: 'Can Ghost do e-commerce?', a: 'Not natively. Ghost focuses on content and memberships. For e-commerce, WordPress with WooCommerce is the better choice.' },
     ],
     keywords: ['wordpress vs ghost', 'ghost vs wordpress', 'best blogging platform', 'ghost cms review', 'wordpress alternative', 'ghost self hosted'],
+    category: 'Productivity',
   },
   {
     slug: 'pi-hole-vs-adguard-home',
@@ -690,6 +710,7 @@ volumes:
       { q: 'Can I use either with a VPN?', a: 'Yes. Both work with WireGuard, Tailscale, and other VPNs. Configure VPN clients to use the DNS blocker as their DNS server.' },
     ],
     keywords: ['pihole vs adguard home', 'pi-hole vs adguard', 'dns ad blocker', 'best dns ad blocking', 'pi-hole alternative', 'adguard home self hosted'],
+    category: 'Security & Privacy',
   },
   {
     slug: 'home-assistant-vs-openhab',
@@ -747,6 +768,7 @@ volumes:
       { q: 'Can I migrate from openHAB to Home Assistant?', a: 'There\'s no automatic migration. You\'ll need to reconfigure devices and automations, but Home Assistant\'s discovery often auto-detects devices.' },
     ],
     keywords: ['home assistant vs openhab', 'openhab vs home assistant', 'best smart home platform', 'home assistant review', 'self hosted smart home', 'open source home automation'],
+    category: 'Smart Home',
   },
   {
     slug: 'traefik-vs-nginx-proxy-manager',
@@ -825,6 +847,7 @@ volumes:
       { q: 'Can I use Cloudflare Tunnel instead?', a: 'Yes. Cloudflare Tunnel (cloudflared) is an alternative that bypasses the need for a reverse proxy and handles SSL automatically. Great for exposing services without opening ports.' },
     ],
     keywords: ['traefik vs nginx proxy manager', 'reverse proxy comparison', 'best reverse proxy docker', 'nginx proxy manager vs traefik', 'self hosted reverse proxy'],
+    category: 'DevOps & Infrastructure',
   },
   {
     slug: 'portainer-vs-yacht',
@@ -881,6 +904,7 @@ volumes:
       { q: 'Which is lighter on resources?', a: 'Yacht uses ~80MB RAM vs Portainer\'s ~200MB. If resources are tight on a small VPS, Yacht is the lighter option.' },
     ],
     keywords: ['portainer vs yacht', 'docker management ui', 'best docker gui', 'portainer alternative', 'self hosted docker manager', 'portainer review'],
+    category: 'DevOps & Infrastructure',
   },
   {
     slug: 'prometheus-vs-grafana',
@@ -948,6 +972,7 @@ volumes:
       { q: 'Is there an all-in-one alternative?', a: 'Yes. Datadog, New Relic, and Netdata offer all-in-one monitoring. But they\'re either expensive or limited compared to the Prometheus + Grafana stack.' },
     ],
     keywords: ['prometheus vs grafana', 'grafana vs prometheus', 'monitoring stack', 'best monitoring tools', 'prometheus grafana setup', 'self hosted monitoring'],
+    category: 'DevOps & Infrastructure',
   },
   {
     slug: 'authentik-vs-authelia',
@@ -1049,6 +1074,7 @@ volumes:
       { q: 'Do I need SSO if I\'m the only user?', a: 'Not really. SSO is most valuable with 5+ users. For personal use, a reverse proxy with basic auth or Tailscale might be simpler.' },
     ],
     keywords: ['authentik vs authelia', 'authelia vs authentik', 'self hosted sso', 'best sso self hosted', 'authelia review', 'authentik review'],
+    category: 'Security & Privacy',
   },
   {
     slug: 'minio-vs-ceph',
@@ -1109,6 +1135,7 @@ volumes:
       { q: 'Is there a simpler alternative?', a: 'For basic file storage, consider Garage (lightweight S3-compatible) or just use your filesystem with NFS/SMB.' },
     ],
     keywords: ['minio vs ceph', 'ceph vs minio', 'self hosted object storage', 's3 compatible storage', 'minio review', 'best object storage self hosted'],
+    category: 'Storage & Files',
   },
   {
     slug: 'pleroma-vs-mastodon',
@@ -1192,6 +1219,7 @@ volumes:
       { q: 'Are there other Fediverse options?', a: 'Yes. Misskey/Firefish (feature-rich), GoToSocial (lightweight Go), and Lemmy (Reddit-like) are popular alternatives.' },
     ],
     keywords: ['pleroma vs mastodon', 'mastodon vs pleroma', 'self hosted mastodon', 'fediverse server', 'best fediverse platform', 'pleroma self hosted'],
+    category: 'Communication',
   },
   {
     slug: 'mealie-vs-tandoor',
@@ -1277,6 +1305,7 @@ volumes:
       { q: 'Which has a better mobile experience?', a: 'Mealie. Its PWA feels more like a native app. Both work in mobile browsers.' },
     ],
     keywords: ['mealie vs tandoor', 'tandoor vs mealie', 'self hosted recipe manager', 'best recipe manager self hosted', 'mealie review', 'tandoor recipes review'],
+    category: 'Productivity',
   },
   {
     slug: 'stirling-pdf-vs-pdfding',
@@ -1334,6 +1363,7 @@ volumes:
       { q: 'Are my PDFs safe on these tools?', a: 'Both run locally and process files on your server. No files are sent to external services. Stirling PDF can be configured to delete files after processing.' },
     ],
     keywords: ['stirling pdf vs pdfding', 'self hosted pdf tool', 'stirling pdf review', 'pdf editor self hosted', 'best self hosted pdf', 'pdf manipulation docker'],
+    category: 'Media',
   },
   {
     slug: 'zulip-vs-mattermost',
@@ -1444,6 +1474,7 @@ volumes:
       { q: 'Which is easier to self-host?', a: 'Mattermost has a simpler Docker setup with fewer containers. Zulip requires PostgreSQL, Redis, Memcached, and RabbitMQ, making it more complex to deploy.' },
     ],
     keywords: ['zulip vs mattermost', 'mattermost vs zulip', 'self hosted team chat', 'zulip review', 'mattermost self hosted', 'best self hosted chat 2026'],
+    category: 'Communication',
   },
   {
     slug: 'zulip-vs-rocketchat',
@@ -1546,6 +1577,7 @@ volumes:
       { q: 'Which is easier to deploy?', a: 'Rocket.Chat has a simpler Docker setup (app + MongoDB). Zulip requires more services (PostgreSQL, Redis, Memcached, RabbitMQ).' },
     ],
     keywords: ['zulip vs rocketchat', 'rocketchat vs zulip', 'self hosted chat platform', 'rocketchat self hosted', 'zulip review', 'best open source chat 2026'],
+    category: 'Communication',
   },
   {
     slug: 'mattermost-vs-rocketchat',
@@ -1641,6 +1673,7 @@ volumes:
       { q: 'Which is cheaper for a small team?', a: 'Rocket.Chat. Its enterprise plan is $4/user/mo vs Mattermost\'s $10/user/mo. Both free self-hosted versions are feature-rich enough for small teams.' },
     ],
     keywords: ['mattermost vs rocketchat', 'rocketchat vs mattermost', 'slack alternative self hosted', 'mattermost review', 'rocketchat self hosted', 'best self hosted chat 2026'],
+    category: 'Communication',
   },
   {
     slug: 'element-vs-zulip',
@@ -1743,6 +1776,7 @@ volumes:
       { q: 'Which is better for a large organization?', a: 'Zulip for internal team communication (threaded discussions scale well). Element if you need to communicate with external partners via federation.' },
     ],
     keywords: ['element vs zulip', 'zulip vs element', 'matrix chat self hosted', 'element self hosted', 'zulip review', 'best encrypted chat self hosted 2026'],
+    category: 'Communication',
   },
   {
     slug: 'revolt-vs-element',
@@ -1832,6 +1866,7 @@ volumes:
       { q: 'Which is easier to self-host?', a: 'Revolt has a simpler setup (fewer moving parts). Element requires Synapse homeserver plus the Element web client, which is more complex.' },
     ],
     keywords: ['revolt vs element', 'element vs revolt', 'discord alternative self hosted', 'revolt chat review', 'matrix chat self hosted', 'best self hosted discord alternative 2026'],
+    category: 'Communication',
   },
   {
     slug: 'outline-vs-notion',
@@ -1906,6 +1941,7 @@ volumes:
       { q: 'What databases does Outline support?', a: 'Outline uses PostgreSQL for its database. It does not have Notion-style database/table features for managing structured data within documents.' },
     ],
     keywords: ['outline wiki', 'outline vs notion', 'self hosted notion alternative', 'outline self hosted', 'best self hosted wiki', 'notion alternative open source'],
+    category: 'Notes & Knowledge',
   },
   {
     slug: 'n8n-vs-activepieces',
@@ -1955,6 +1991,7 @@ volumes:
       { q: 'Which handles complex workflows better?', a: 'n8n handles complex workflows better with its code nodes, branching logic, error handling, and sub-workflow support. Activepieces is designed for simpler linear flows.' },
     ],
     keywords: ['n8n vs activepieces', 'self hosted automation', 'n8n alternative', 'activepieces vs n8n', 'open source zapier alternative', 'best self hosted automation tool'],
+    category: 'Productivity',
   },
   {
     slug: 'openproject-vs-plane',
@@ -2005,6 +2042,7 @@ volumes:
       { q: 'Can Plane replace Jira?', a: 'For software teams using basic Jira features (issues, sprints, boards), yes. Plane has a modern UI and covers core agile workflows. It does not match Jira\'s full feature set for complex enterprise workflows.' },
     ],
     keywords: ['openproject vs plane', 'self hosted project management', 'openproject alternative', 'plane so vs openproject', 'best self hosted pm tool', 'open source jira alternative'],
+    category: 'Productivity',
   },
   {
     slug: 'docmost-vs-bookstack',
@@ -2053,6 +2091,7 @@ volumes:
       { q: 'Can I migrate between them?', a: 'Both support Markdown export, so you can move content. However, the hierarchy models differ (Spaces vs Books), so some manual reorganization is needed.' },
     ],
     keywords: ['docmost vs bookstack', 'self hosted wiki comparison', 'best self hosted wiki 2026', 'docmost alternative', 'bookstack vs docmost', 'open source wiki'],
+    category: 'Notes & Knowledge',
   },
   {
     slug: 'openproject-vs-taiga',
@@ -2102,6 +2141,7 @@ volumes:
       { q: 'Can I import from Jira?', a: 'Both support Jira import. Taiga also imports from Trello, Asana, and GitHub Issues. OpenProject imports from Jira and CSV.' },
     ],
     keywords: ['openproject vs taiga', 'self hosted project management', 'taiga vs openproject', 'open source jira alternative', 'agile project management self hosted', 'scrum tool open source'],
+    category: 'Productivity',
   },
   {
     slug: 'mattermost-vs-zulip',
@@ -2151,6 +2191,7 @@ volumes:
       { q: 'Can I migrate from Slack?', a: 'Mattermost has a Slack import tool that migrates channels, messages, and users. Zulip does not have a direct Slack import, though you can import via API.' },
     ],
     keywords: ['mattermost vs zulip', 'self hosted chat', 'mattermost alternative', 'zulip vs mattermost', 'open source slack alternative', 'best self hosted team chat'],
+    category: 'Communication',
   },
   {
     slug: 'docmost-vs-wiki-js',
@@ -2244,6 +2285,7 @@ volumes:
       { q: 'Which is easier to set up?', a: 'Docmost. One Docker Compose file with three services (app, PostgreSQL, Redis). Wiki.js requires more configuration, especially if you want Git or SAML integration.' },
     ],
     keywords: ['docmost vs wiki.js', 'docmost vs wikijs', 'self hosted wiki comparison', 'best self hosted wiki 2026', 'docmost review', 'wiki.js alternative', 'notion self hosted alternative'],
+    category: 'Notes & Knowledge',
   },
   {
     slug: 'glitchtip-vs-sentry',
@@ -2320,6 +2362,7 @@ volumes:
       { q: 'What are Sentry alternatives?', a: 'GlitchTip is the best open-source alternative. Others include: Highlight.io (session replay focused), OpenReplay (self-hosted session replay), and SigNoz (OpenTelemetry native). Each has different strengths.' },
     ],
     keywords: ['glitchtip vs sentry', 'glitchtip sentry comparison', 'sentry alternative open source', 'open source error monitoring', 'glitchtip review 2026', 'migrate sentry to glitchtip', 'free sentry alternative self hosted', 'glitchtip docker setup'],
+    category: 'DevOps & Infrastructure',
   },
   {
     slug: 'rustdesk-vs-teamviewer',
@@ -2389,5 +2432,6 @@ services:
       { q: 'What is the difference between AnyDesk and RustDesk?', a: 'AnyDesk is proprietary (closed source), costs $14.90/month for commercial use, and you cannot self-host the relay server. RustDesk is open source, free, and you can run your own server. Performance is comparable for most use cases.' },
     ],
     keywords: ['rustdesk vs teamviewer', 'rustdesk teamviewer comparison', 'free remote desktop self hosted', 'teamviewer alternative open source', 'rustdesk review 2026', 'self hosted remote desktop', 'anydesk alternative free', 'rustdesk docker setup'],
+    category: 'DevOps & Infrastructure',
   },
 ]
